@@ -1,20 +1,25 @@
 <div>
     <style>
-        nav svg{
+        nav svg {
             height: 20px;
         }
-        nav .hidden{
+
+        nav .hidden {
             display: block !important;
         }
+
     </style>
     <div class="container" style="padding: 30px 0">
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <div class="col-md-6">All Products</div>
-                        <div class="col-md-6">
-                            <a href="{{ route('admin.addproduct') }}" class="btn btn-success pull-right">Add New</a>
+                        <div class="row">
+                            <div class="col-md-6">All Products</div>
+                            <div class="col-md-6">
+                                <a href="{{ route('admin.addproduct') }}" class="btn btn-success pull-right">Add
+                                    New</a>
+                            </div>
                         </div>
                     </div>
                     <div class="panel-body">
@@ -36,7 +41,8 @@
                                     <tr>
                                         <td>{{ $product->id }}</td>
                                         <td>
-                                            <img src="{{ asset('assets/images/products') }}/{{ $product->image }}" width="60" alt="">
+                                            <img src="{{ asset('assets/images/products') }}/{{ $product->image }}"
+                                                width="60" alt="">
                                         </td>
                                         <td>{{ $product->name }}</td>
                                         <td>{{ $product->stock_status }}</td>
