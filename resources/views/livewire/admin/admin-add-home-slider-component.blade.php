@@ -1,3 +1,7 @@
 <div>
-    {{-- The best athlete wants his opponent at his best. --}}
+    <div class="container" style="padding:30px 0">
+        <div class="row">
+            
+        </div>
+    </div>
 </div>

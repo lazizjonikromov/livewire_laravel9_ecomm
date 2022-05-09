@@ -82,6 +82,11 @@
                                                         <a title="Products" href="{{ route('admin.products') }}">All Products</a>
                                                     </li>
                                                     <li class="menu-item">
+                                                        <a title="Manage Home Slider" href="{{ route('admin.homeslider') }}">
+                                                            Manage Home Slider
+                                                        </a>
+                                                    </li>
+                                                    <li class="menu-item">
                                                         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                                                     </li>
                                                     <form id="logout-form" action="{{ route('logout') }}" method="post">
