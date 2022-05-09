@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Models\HomeSlider;
 use Livewire\Component;
 
 class AdminAddHomeSliderComponent extends Component
@@ -15,7 +16,19 @@ class AdminAddHomeSliderComponent extends Component
 
     public function mount()
     {
-        
+        $this->status = 0;
+    }
+
+    public function addSlide()
+    {
+        $slider = new HomeSlider();
+        $slider->title = $this->title;
+        $slider->subtitle = $this->subtitle;
+        $slider->price = $this->price;
+        $slider->link = $this->link;
+        $slider->image = $this->image;
+        $slider->status = $this->status; 
+
     }
 
     public function render()
