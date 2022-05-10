@@ -16,32 +16,41 @@
                         </div>
                     </div>
                     <div class="panel-body">
-                        <form action="" class="form-horizontal">
+                        @if (Session::has('message'))
+                            <div class="alert alert-success" role="alert">
+                                {{ Session::get('message') }}
+                            </div>
+                        @endif
+                        <form class="form-horizontal" wire:submit.prevent="addSlide">
                             <div class="form-group">
                                 <label for="" class="col-md-4 control-label">Title</label>
                                 <div class="col-md-4">
-                                    <input type="text" placeholder="Title" class="form-control input-md" wire:model="title">
+                                    <input type="text" placeholder="Title" class="form-control input-md"
+                                        wire:model="title">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="" class="col-md-4 control-label">Subtitle</label>
                                 <div class="col-md-4">
-                                    <input type="text" placeholder="Subtitle" class="form-control input-md" wire:model="subtitle">
+                                    <input type="text" placeholder="Subtitle" class="form-control input-md"
+                                        wire:model="subtitle">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="" class="col-md-4 control-label">Price</label>
                                 <div class="col-md-4">
-                                    <input type="text" placeholder="Price" class="form-control input-md" wire:model="price">
+                                    <input type="text" placeholder="Price" class="form-control input-md"
+                                        wire:model="price">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="" class="col-md-4 control-label">Link</label>
                                 <div class="col-md-4">
-                                    <input type="text" placeholder="Link" class="form-control input-md" wire:model="link">
+                                    <input type="text" placeholder="Link" class="form-control input-md"
+                                        wire:model="link">
                                 </div>
                             </div>
 
