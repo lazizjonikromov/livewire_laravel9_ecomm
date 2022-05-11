@@ -13,7 +13,7 @@
                                     Choose Categories
                                 </label>
                                 <div class="col-md-4">
-                                    <select class="sel_categories form-control" name="categories[]" multiple="multiple">
+                                    <select class="sel_categories form-control" name="categories[]" multiple="multiple" wire:model="selected_categories">
                                         @foreach ($categories as $category)
                                             <option value="{{ $category->id }}">{{ $category->name }}</option>
                                         @endforeach
@@ -26,7 +26,7 @@
                                     No Of Products
                                 </label>
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control input-md">
+                                    <input type="text" class="form-control input-md" wire:model="numberofproducts">
                                 </div>
                             </div>
 
