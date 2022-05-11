@@ -12,11 +12,13 @@
                                 <label for="" class="col-md-4 control-label">
                                     Choose Categories
                                 </label>
-                                <select class="sel_categories form-control" name="categories[]" multiple="multiple">
-                                    @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                    @endforeach
-                                </select>
+                                <div class="col-md-4">
+                                    <select class="sel_categories form-control" name="categories[]" multiple="multiple">
+                                        @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
 
                             <div class="form-group">
@@ -45,5 +47,9 @@
 </div>
 
 @push('scripts')
-    
+    <script>
+        $(document).ready(function(){
+            $('.sel_categories').select2();
+        });
+    </script>
 @endpush
