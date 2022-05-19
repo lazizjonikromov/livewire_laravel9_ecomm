@@ -53,6 +53,7 @@
                     var data = $('#sale-date').val();
                     @this.set('sale_date', data);
                 });
+
         })
     </script>
 @endpush
