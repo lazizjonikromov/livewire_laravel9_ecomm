@@ -43,8 +43,8 @@
 
                             <div class="form-group">
                                 <label for="" class="col-md-4 control-label">Short Description</label>
-                                <div class="col-md-4">
-                                    <textarea placeholder="Short Description" class="form-control input-md" wire:model="short_description"></textarea>
+                                <div class="col-md-4" wire:ignore>
+                                    <textarea placeholder="Short Description" id="short_description" class="form-control input-md" wire:model="short_description"></textarea>
                                     @error('short_description')
                                         <p style="color: #ff2832;">{{ $message }}</p>
                                     @enderror
@@ -53,8 +53,8 @@
 
                             <div class="form-group">
                                 <label for="" class="col-md-4 control-label">Description</label>
-                                <div class="col-md-4">
-                                    <textarea placeholder="Description" class="form-control input-md" wire:model="description"></textarea>
+                                <div class="col-md-4" wire:ignore>
+                                    <textarea placeholder="Description" id="description" class="form-control input-md" wire:model="description"></textarea>
                                     @error('description')
                                         <p style="color: #ff2832;">{{ $message }}</p>
                                     @enderror
