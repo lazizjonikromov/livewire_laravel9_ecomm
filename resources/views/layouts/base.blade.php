@@ -189,8 +189,8 @@
                         <div class="mid-section main-info-area">
 
                             <div class="wrap-logo-top left-section">
-                                <a href="/" class="link-to-home"><img
-                                        src="{{ asset('assets/images/logo-top-1.png') }}" alt="mercado"></a>
+                                <a href="/" class="link-to-home"><img src="{{ asset('assets/images/logo-top-1.png') }}"
+                                        alt="mercado"></a>
                             </div>
 
                             @livewire('header-search-component')
@@ -612,6 +612,8 @@
                 integrity="sha512-EnXkkBUGl2gBm/EIZEgwWpQNavsnBbeMtjklwAa7jLj60mJk932aqzXFmdPKCG6ge/i8iOCK0Uwl1Qp+S0zowg=="
                 crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+        <script src="https://cdn.tiny.cloud/1/8yosu01rpxlkt63mtuzzrgkal8pqsqyok39v5j7z66gs1wg1/tinymce/5/tinymce.min.js"
+                referrerpolicy="origin"></script>
 
         @livewireScripts
 
