@@ -32,6 +32,10 @@ class ShopComponent extends Component
         return redirect()->route('product.cart');
     }
 
+    public function addToWishlist($product_id,$product_name,$product_price){
+        
+    }
+
     use WithPagination;
 
     public function render()
