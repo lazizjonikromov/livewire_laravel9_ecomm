@@ -77,7 +77,7 @@
                     }
 
                     .fill-heart{
-                        color: #ff2832;
+                        color: #ff2832 !important;
                     }
 
                     @keyframes scales {
