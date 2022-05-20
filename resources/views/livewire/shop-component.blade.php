@@ -132,7 +132,7 @@
                                                 </a>
                                             @else
                                                 <a href="#">
-                                                    <i class="fa fa-heart" wire:click.prevent="addToWishlist()"></i>
+                                                    <i class="fa fa-heart" wire:click.prevent="addToWishlist({{ $product->id }} , '{{ $product->name }}' ,{{ $product->regular_price }})"></i>
                                                 </a>
                                             @endif
                                         </div>
