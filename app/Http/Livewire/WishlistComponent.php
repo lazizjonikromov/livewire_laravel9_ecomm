@@ -8,6 +8,6 @@ class WishlistComponent extends Component
 {
     public function render()
     {
-        return view('livewire.wishlist-component');
+        return view('livewire.wishlist-component')->layout('layouts.base');
     }
 }
