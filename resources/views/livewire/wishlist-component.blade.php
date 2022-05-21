@@ -9,6 +9,49 @@
             </ul>
         </div>
 
+        <style>
+            .product-wish {
+                position: absolute;
+                top: 10%;
+                left: 0;
+                z-index: 99;
+                right: 30px;
+                text-align: right;
+                padding-top: 0;
+            }
+
+            .product-wish .fa {
+                color: #cbcbcb;
+                font-size: 32px;
+            }
+
+            .product-wish .fa:hover {
+                color: #ff2832;
+                animation: scales 1s linear infinite;
+            }
+
+            .fill-heart{
+                color: #ff2832 !important;
+            }
+
+            @keyframes scales {
+                0% {
+                    transform: scale(1);
+                }
+
+                10% {
+                    transform: scale(1.1);
+                }
+
+                50% {
+                    transform: scale(0.9);
+                }
+
+                100% {
+                    transform: scale(1.1);
+                }
+            }
+
         <div class="row">
             @if (Cart::instance('wishlist')->content()->count() > 0)
 
