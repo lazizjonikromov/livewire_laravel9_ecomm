@@ -59,7 +59,7 @@
 
                 <ul class="product-list grid-products equal-container">
                     @foreach (Cart::instance('wishlist')->content() as $item)
-                        <li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 ">
+                        <li class="col-lg-3 col-md-6 col-sm-6 col-xs-6 ">
                             <div class="product product-style-3 equal-elem ">
                                 <div class="product-thumnail">
                                     <a href="{{ route('product.details', ['slug' => $item->model->slug]) }}"
