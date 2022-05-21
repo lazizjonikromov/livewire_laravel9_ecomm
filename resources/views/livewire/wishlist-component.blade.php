@@ -52,6 +52,8 @@
                 }
             }
 
+        </style>
+
         <div class="row">
             @if (Cart::instance('wishlist')->content()->count() > 0)
 
