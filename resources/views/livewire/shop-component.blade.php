@@ -127,7 +127,7 @@
                                             To Cart</a>
                                         <div class="product-wish">
                                             @if($witems->contains($product->id))
-                                                <a href="#" wireLclick.prevent="removeFromWishlist({{ $product->id }})">
+                                                <a href="#" wire:click.prevent="removeFromWishlist({{ $product->id }})">
                                                     <i class="fa fa-heart fill-heart"></i>
                                                 </a>
                                             @else
