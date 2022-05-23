@@ -35,6 +35,9 @@
 											<a class="btn btn-increase" href="#" wire:click.prevent="increaseQuantity('{{ $item->rowId }}')"></a>
 											<a class="btn btn-reduce" href="#" wire:click.prevent="decreaseQuantity('{{ $item->rowId }}')"></a>
 										</div>
+                                        <p class="text-center">
+                                            <a href="#">Save For Later</a>
+                                        </p>
 									</div>
 									<div class="price-field sub-total"><p class="price">${{ $item->subtotal }}</p></div>
 									<div class="delete">
