@@ -64,8 +64,20 @@
 					</div>
 					<div class="checkout-info">
 						<label class="checkbox-field">
-							<input class="frm-input " name="have-code" id="have-code" value="" type="checkbox"><span>I have promo code</span>
+							<input class="frm-input " name="have-code" id="have-code" value="1" type="checkbox" wire:model="haveCouponCode"><span>I have coupon code</span>
 						</label>
+                        @if ($haveCouponCode == 1)
+                            <div class="summary-item">
+                                <form>
+                                    <h4 class="title-box">Coupon Code</h4>
+                                    <p class="row-in-form">
+                                        <label for="coupon-code">Enter your coupen code</label>
+                                        <input type="text" name="coupon-code">
+                                    </p>
+                                    <button type="submit" class="btn btn-small">Apply</button>
+                                </form>
+                            </div>
+                        @endif
 						<a class="btn btn-checkout" href="checkout.html">Check out</a>
 						<a class="link-to-shop" href="shop.html">Continue Shopping<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
 					</div>

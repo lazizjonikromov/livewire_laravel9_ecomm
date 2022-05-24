@@ -7,6 +7,9 @@ use Cart;
 
 class CartComponent extends Component
 {
+    public $haveCouponCode;
+
+
     public function increaseQuantity($rowId){
         $product = Cart::instance('cart')->get($rowId);
         $qty = $product->qty + 1;
