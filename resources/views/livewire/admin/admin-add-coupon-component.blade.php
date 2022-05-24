@@ -21,34 +21,46 @@
                                 {{Session::get('message')}}
                             </div>
                         @endif
-                        <form class="form-horizontal" wire:submit.prevent="storeCategory">
+                        <form class="form-horizontal" wire:submit.prevent="storeCoupon">
                             <div class="form-group">
                                 <label for="" class="col-md-4 control-label">Coupon Code</label>
                                 <div class="col-md-4">
-                                    <input type="text" placeholder="Coupon Code" class="form-control input-md" wire:model="name">
-                                    @error('name')
+                                    <input type="text" placeholder="Coupon Code" class="form-control input-md" wire:model="code">
+                                    @error('code')
                                         <p style="color: #ff2832;">{{ $message }}</p>
                                     @enderror
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="" class="col-md-4 control-label">Coupon Code</label>
+                                <label for="" class="col-md-4 control-label">Coupon Type</label>
                                 <div class="col-md-4">
-                                    <select class="form-control">
+                                    <select class="form-control" wire:model="type">
                                         <option value="">Select</option>
+                                        <option value="fixed">Fixed</option>
+                                        <option value="percent">Percent</option>
                                     </select>
-                                    @error('name')
+                                    @error('type')
                                         <p style="color: #ff2832;">{{ $message }}</p>
                                     @enderror
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="" class="col-md-4 control-label">Category Slug</label>
+                                <label for="" class="col-md-4 control-label">Coupon Value</label>
                                 <div class="col-md-4">
-                                    <input type="text" placeholder="Category Slug" class="form-control input-md" wire:model="slug">
-                                    @error('slug')
+                                    <input type="text" placeholder="Coupon Value" class="form-control input-md" wire:model="value">
+                                    @error('value')
+                                        <p style="color: #ff2832;">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="" class="col-md-4 control-label">Cart Value</label>
+                                <div class="col-md-4">
+                                    <input type="text" placeholder="Cart Value" class="form-control input-md" wire:model="cart_value">
+                                    @error('cart_value')
                                         <p style="color: #ff2832;">{{ $message }}</p>
                                     @enderror
                                 </div>
