@@ -58,9 +58,13 @@
 					<div class="order-summary">
 						<h4 class="title-box">Order Summary</h4>
 						<p class="summary-info"><span class="title">Subtotal</span><b class="index">${{ Cart::instance('cart')->subtotal() }}</b></p>
-						<p class="summary-info"><span class="title">Tax</span><b class="index">${{ Cart::instance('cart')->tax() }}</b></p>
-						<p class="summary-info"><span class="title">Shipping</span><b class="index">Free Shipping</b></p>
-						<p class="summary-info total-info "><span class="title">Total</span><b class="index">${{ Cart::instance('cart')->total() }}</b></p>
+                        @if (Session::has('coupon'))
+
+                        @else
+                            <p class="summary-info"><span class="title">Tax</span><b class="index">${{ Cart::instance('cart')->tax() }}</b></p>
+                            <p class="summary-info"><span class="title">Shipping</span><b class="index">Free Shipping</b></p>
+                            <p class="summary-info total-info "><span class="title">Total</span><b class="index">${{ Cart::instance('cart')->total() }}</b></p>
+                        @endif
 					</div>
                     @if (!Session::has('coupon'))
 
