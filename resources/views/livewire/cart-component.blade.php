@@ -62,6 +62,8 @@
 						<p class="summary-info"><span class="title">Shipping</span><b class="index">Free Shipping</b></p>
 						<p class="summary-info total-info "><span class="title">Total</span><b class="index">${{ Cart::instance('cart')->total() }}</b></p>
 					</div>
+                    @if (!Session::has('coupon'))
+
 					<div class="checkout-info">
 						<label class="checkbox-field">
 							<input class="frm-input " name="have-code" id="have-code" value="1" type="checkbox" wire:model="haveCouponCode"><span>I have coupon code</span>
@@ -85,6 +87,8 @@
                                 </form>
                             </div>
                         @endif
+                    @endif
+
 						<a class="btn btn-checkout" href="checkout.html">Check out</a>
 						<a class="link-to-shop" href="shop.html">Continue Shopping<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
 					</div>
