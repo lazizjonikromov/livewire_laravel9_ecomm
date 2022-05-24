@@ -13,6 +13,7 @@ class AdminCouponsComponent extends Component
         $coupon->delete();
         session()->flash('message', 'Coupon has been deleted succesfully!');
     }
+    
     public function render()
     {
         $coupons = Coupon::all();
