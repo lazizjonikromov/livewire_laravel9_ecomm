@@ -20,7 +20,7 @@ class AdminEditCouponComponent extends Component
         $this->type = $coupon->type;
         $this->value = $coupon->value;
         $this->cart_value = $coupon->cart_value;
-        $this->coupon_id = $coupon->coupon_id;
+        $this->coupon_id = $coupon->id;
     }
 
     public function updated($fields)
