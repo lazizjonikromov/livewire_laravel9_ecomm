@@ -7,6 +7,12 @@ use Livewire\Component;
 
 class AdminCouponsComponent extends Component
 {
+    public function deleteCoupon($coupon_id)
+    {
+        $coupon = Coupon::find($coupon_id);
+        $coupon->delete();
+        session()->flash('message', 'Coupon has been deleted succesfully!');
+    }
     public function render()
     {
         $coupons = Coupon::all();
