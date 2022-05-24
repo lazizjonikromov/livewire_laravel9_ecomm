@@ -75,7 +75,7 @@ class CartComponent extends Component
             'code' => $coupon->code,
             'type' => $coupon->type,
             'value' => $coupon->value,
-            'cart_value' => $coupon->cart_value,
+            'cart_value' => $coupon->cart_value
         ]);
 
     }

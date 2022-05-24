@@ -70,6 +70,13 @@
                             <div class="summary-item">
                                 <form>
                                     <h4 class="title-box">Coupon Code</h4>
+
+                                    @if (Session::has('coupon_message'))
+                                        <div class="alert alert-danger">
+                                            {{ Session::get('coupon_message') }}
+                                        </div>
+					                @endif
+
                                     <p class="row-in-form">
                                         <label for="coupon-code">Enter your coupen code</label>
                                         <input type="text" name="coupon-code" wire:model="couponCode">
