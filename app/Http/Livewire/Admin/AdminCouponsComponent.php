@@ -2,12 +2,14 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Models\Coupon;
 use Livewire\Component;
 
 class AdminCouponsComponent extends Component
 {
     public function render()
     {
-        return view('livewire.admin.admin-coupons-component')->layout('layouts.base');
+        $coupons = Coupon::all();
+        return view('livewire.admin.admin-coupons-component',['coupons'=>$coupons])->layout('layouts.base');
     }
 }

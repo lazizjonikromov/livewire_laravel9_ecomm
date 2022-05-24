@@ -140,8 +140,14 @@
                                                         </a>
                                                     </li>
                                                     <li class="menu-item">
-                                                        <a title="Sale Setting" href="{{ route('admin.sale') }}">Sale
-                                                            Setting</a>
+                                                        <a title="Sale Setting" href="{{ route('admin.sale') }}">
+                                                            Sale Setting
+                                                        </a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a title="All Coupon" href="{{ route('admin.coupons') }}">
+                                                            All Coupon
+                                                        </a>
                                                     </li>
                                                     <li class="menu-item">
                                                         <a href="{{ route('logout') }}"
@@ -196,7 +202,7 @@
                             @livewire('header-search-component')
 
                             <div class="wrap-icon right-section">
-                                
+
                                 @livewire('wishlist-count-component')
                                 @livewire('cart-count-component')
 
