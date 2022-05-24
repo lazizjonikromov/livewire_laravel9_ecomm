@@ -93,8 +93,10 @@ class CartComponent extends Component
                 $this->discount = session()->get('coupon')['value'];
             }
             else{
-                
+                $this->discount = (Cart::instance('cart')->subtotal() * session()->get('coupon')['value'])/100;
             }
+            $this->subtotalAfterDiscount = Cart::instance('cart')->subtotal() - $this->discount;
+            $this->taxAfterDiscount = ($this->subtotalAfterDiscount * );
         }
     }
 
