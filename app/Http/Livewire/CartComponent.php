@@ -10,6 +10,10 @@ class CartComponent extends Component
 {
     public $haveCouponCode;
     public $couponCode;
+    public $discount;
+    public $subtotalAfterDiscount;
+    public $taxAfterDiscount;
+    public $totalAfterDiscount;
 
     public function increaseQuantity($rowId){
         $product = Cart::instance('cart')->get($rowId);
@@ -78,6 +82,20 @@ class CartComponent extends Component
             'cart_value' => $coupon->cart_value
         ]);
 
+    }
+
+    public function calculateDiscounts()
+    {
+        if(session()->has('coupon'))
+        {
+            if(session()->get('coupon')['type'] == 'fixed')
+            {
+                $this->discount = session()->get('coupon')['value'];
+            }
+            else{
+                
+            }
+        }
     }
 
     public function render()
