@@ -103,6 +103,10 @@ class CartComponent extends Component
 
     public function render()
     {
+        if(session()->has('coupon'))
+        {
+            if(Cart::instance('cart')->subtotal() < session()->get('coupon')['cart_value'])
+        }
         return view('livewire.cart-component')->layout("layouts.base");
     }
 
