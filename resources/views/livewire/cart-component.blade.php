@@ -72,7 +72,7 @@
                                     <h4 class="title-box">Coupon Code</h4>
                                     <p class="row-in-form">
                                         <label for="coupon-code">Enter your coupen code</label>
-                                        <input type="text" name="coupon-code">
+                                        <input type="text" name="coupon-code" wire:model="couponCode">
                                     </p>
                                     <button type="submit" class="btn btn-small">Apply</button>
                                 </form>
