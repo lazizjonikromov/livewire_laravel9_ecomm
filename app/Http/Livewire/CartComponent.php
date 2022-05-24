@@ -101,6 +101,11 @@ class CartComponent extends Component
         }
     }
 
+    public function removeCoupon()
+    {
+        session()->forget('coupon');
+    }
+
     public function render()
     {
         if(session()->has('coupon'))
