@@ -77,7 +77,7 @@
 						</label>
                         @if ($haveCouponCode == 1)
                             <div class="summary-item">
-                                <form>
+                                <form wire:submit.prevent="applyCouponCode">
                                     <h4 class="title-box">Coupon Code</h4>
 
                                     @if (Session::has('coupon_message'))

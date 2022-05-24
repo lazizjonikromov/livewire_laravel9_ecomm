@@ -41,7 +41,7 @@
                                         @else
                                             <td>{{$coupon->value}} %</td>
                                         @endif
-                                        <td>{{$coupon->cart_value}}</td>
+                                        <td>${{$coupon->cart_value}}</td>
                                         <td>
                                             <a href="{{route('admin.editcoupon',['coupon_id'=>$coupon->id])}}">
                                                 <i class="fa fa-edit fa-2x"></i>
