@@ -12,6 +12,11 @@ class AdminAddCouponComponent extends Component
     public $value;
     public $cart_value;
 
+    public function updated($fields)
+    {
+        
+    }
+
     public function storeCoupon()
     {
         $this->validate([
@@ -27,6 +32,7 @@ class AdminAddCouponComponent extends Component
         $coupon->value = $this->value;
         $coupon->cart_value = $this->cart_value;
         $coupon->save();
+        session()->flash('message', 'Coupon has been created successfully!');
     }
 
     public function render()
