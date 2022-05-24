@@ -59,7 +59,8 @@
 						<h4 class="title-box">Order Summary</h4>
 						<p class="summary-info"><span class="title">Subtotal</span><b class="index">${{ Cart::instance('cart')->subtotal() }}</b></p>
                         @if (Session::has('coupon'))
-                            <p class="summary-info"><span class="title">Discount ({{ Session::get('coupon')['code'] }})</span><b class="index">${{ Cart::instance('cart')->tax() }}</b></p>
+                            <p class="summary-info"><span class="title">Discount ({{ Session::get('coupon')['code'] }})</span><b class="index">$</b></p>
+                            <p class="summary-info"><span class="title">Tax ({{ config('cart.tax') }}%)</span><b class="index">$</b></p>
                         @else
                             <p class="summary-info"><span class="title">Tax</span><b class="index">${{ Cart::instance('cart')->tax() }}</b></p>
                             <p class="summary-info"><span class="title">Shipping</span><b class="index">Free Shipping</b></p>
