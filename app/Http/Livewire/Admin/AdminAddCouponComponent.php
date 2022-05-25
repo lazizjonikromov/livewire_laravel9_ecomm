@@ -11,6 +11,7 @@ class AdminAddCouponComponent extends Component
     public $type;
     public $value;
     public $cart_value;
+    public $expiry_date;
 
     public function updated($fields)
     {
