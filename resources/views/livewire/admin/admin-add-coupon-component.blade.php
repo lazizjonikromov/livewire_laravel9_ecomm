@@ -89,3 +89,17 @@
         </div>
     </div>
 </div>
+
+@push('scripts')
+    <script>
+        $(function(){
+            $('#expiry-date').datetimepicker({
+                format: 'Y-MM-DD'
+            })
+            .on('dp.change',function(ev){
+                var data = $('#expiry-date').val();
+                @this.set('expiry_date',data);
+            });
+        });
+    </script>
+@endpush
