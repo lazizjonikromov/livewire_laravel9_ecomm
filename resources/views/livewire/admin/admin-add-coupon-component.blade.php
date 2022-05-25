@@ -68,7 +68,7 @@
 
                             <div class="form-group">
                                 <label for="" class="col-md-4 control-label">Expiry Date</label>
-                                <div class="col-md-4">
+                                <div class="col-md-4" wire:ignore>
                                     <input type="text" id="expiry-date" placeholder="Expiry Date" class="form-control input-md" wire:model="expiry_date">
                                     @error('expiry_date')
                                         <p style="color: #ff2832;">{{ $message }}</p>
