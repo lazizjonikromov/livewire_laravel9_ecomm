@@ -94,7 +94,7 @@
     <script>
         $(function(){
             $('#expiry-date').datetimepicker({
-                format: 'Y-MM-DD'
+                format: 'Y-MM-DD h:m:s'
             })
             .on('dp.change',function(ev){
                 var data = $('#expiry-date').val();
