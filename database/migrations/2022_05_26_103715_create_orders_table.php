@@ -22,6 +22,13 @@ return new class extends Migration
             $table->decimal('total');
             $table->string('firstname');
             $table->string('lastname');
+            $table->string('mobile');
+            $table->string('email');
+            $table->string('line1');
+            $table->string('line2')->nullable();
+            $table->string('city');
+            $table->string('province');
+            $table->string('country');
 
             $table->timestamps();
         });
