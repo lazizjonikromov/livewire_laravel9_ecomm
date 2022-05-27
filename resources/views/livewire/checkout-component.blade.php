@@ -11,7 +11,7 @@
 			<div class=" main-content-area">
 				<div class="wrap-address-billing">
 					<h3 class="box-title">Billing Address</h3>
-					<form action="#" method="get" name="frm-billing">
+					<div class="billing-address">
 						<p class="row-in-form">
 							<label for="fname">first name<span>*</span></label>
 							<input type="text" name="fname" value="" placeholder="Your name">
@@ -54,7 +54,7 @@
 								<span>Ship to a different address?</span>
 							</label>
 						</p>
-					</form>
+					</div>
 				</div>
 				<div class="summary summary-checkout">
 					<div class="summary-item payment-method">
@@ -85,7 +85,7 @@
 					<div class="summary-item shipping-method">
 						<h4 class="title-box f-title">Shipping method</h4>
 						<p class="summary-info"><span class="title">Flat Rate</span></p>
-						<p class="summary-info"><span class="title">Fixed $50.00</span></p>
+						<p class="summary-info"><span class="title">Fixed $0</span></p>
 
 					</div>
 				</div>
