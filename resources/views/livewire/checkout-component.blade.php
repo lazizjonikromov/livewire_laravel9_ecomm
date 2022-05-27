@@ -68,8 +68,8 @@
 								<span class="payment-desc">Order Now Pay on Delivery</span>
 							</label>
 							<label class="payment-method">
-								<input name="payment-method" id="payment-method-visa" value="visa" type="radio">
-								<span>visa</span>
+								<input name="payment-method" id="payment-method-visa" value="card" type="radio">
+								<span>Debit / Credit Card</span>
 								<span class="payment-desc">There are many variations of passages of Lorem Ipsum available</span>
 							</label>
 							<label class="payment-method">
