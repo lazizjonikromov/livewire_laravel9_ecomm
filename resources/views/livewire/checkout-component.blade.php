@@ -63,9 +63,9 @@
 						<p class="summary-info"><span class="title">Credit Cart (saved)</span></p>
 						<div class="choose-payment-methods">
 							<label class="payment-method">
-								<input name="payment-method" id="payment-method-bank" value="bank" type="radio">
-								<span>Direct Bank Transder</span>
-								<span class="payment-desc">But the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable</span>
+								<input name="payment-method" id="payment-method-bank" value="cod" type="radio">
+								<span>Cash On Delivery</span>
+								<span class="payment-desc">Order Now Pay on Delivery</span>
 							</label>
 							<label class="payment-method">
 								<input name="payment-method" id="payment-method-visa" value="visa" type="radio">
