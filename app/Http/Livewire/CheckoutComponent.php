@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Shipping;
+use App\Models\Transaction;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Cart;
@@ -136,6 +137,17 @@ class CheckoutComponent extends Component
             $shipping->zipcode = $this->s_zipcode;
             $shipping->save();
         }
+
+        if($this->paymentmode == 'cod')
+        {
+            $transaction = new Transaction();
+            $transaction->user_id = Auth::user()->id;
+            $transaction->oredr_id = $order->id;
+            $transaction->mode = 'cod';
+            $transaction->status = 'pending';
+            $transaction->save();
+        }
+
     }
 
     public function render()
