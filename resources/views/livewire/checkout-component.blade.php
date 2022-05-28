@@ -194,8 +194,13 @@
                                     <span class="payment-desc">You can pay with your credit</span>
                                     <span class="payment-desc">card if you don't have a paypal account</span>
                                 </label>
+                                @error('paymentmode')
+                                    <p style="color: #ff2832;">{{ $message }}</p>
+                                @enderror
                             </div>
-                            <p class="summary-info grand-total"><span>Grand Total</span> <span class="grand-total-price">$100.00</span></p>
+                            @if (Session::has('checkout'))
+                                <p class="summary-info grand-total"><span>Grand Total</span> <span class="grand-total-price">${{ Session::get('checkout')['total'] }}</span></p>
+                            @endif
                             <button type="submit" class="btn btn-medium">Place order now</button>
                         </div>
                         <div class="summary-item shipping-method">
