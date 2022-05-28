@@ -16,35 +16,43 @@
                             <div class="billing-address">
                                 <p class="row-in-form">
                                     <label for="fname">first name<span>*</span></label>
-                                    <input type="text" name="fname" value="" placeholder="Your name">
+                                    <input type="text" name="fname" value="" placeholder="Your name" wire:model="firstname">
                                 </p>
                                 <p class="row-in-form">
                                     <label for="lname">last name<span>*</span></label>
-                                    <input type="text" name="lname" value="" placeholder="Your last name">
+                                    <input type="text" name="lname" value="" placeholder="Your last name" wire:model="firstname">
                                 </p>
                                 <p class="row-in-form">
                                     <label for="email">Email Addreess:</label>
-                                    <input type="email" name="email" value="" placeholder="Type your email">
+                                    <input type="email" name="email" value="" placeholder="Type your email" wire:model="firstname">
                                 </p>
                                 <p class="row-in-form">
                                     <label for="phone">Phone number<span>*</span></label>
-                                    <input type="number" name="phone" value="" placeholder="10 digits format">
+                                    <input type="number" name="phone" value="" placeholder="10 digits format" wire:model="firstname">
                                 </p>
                                 <p class="row-in-form">
-                                    <label for="add">Address:</label>
-                                    <input type="text" name="add" value="" placeholder="Street at apartment number">
+                                    <label for="add">Line1:</label>
+                                    <input type="text" name="add" value="" placeholder="Street at apartment number" wire:model="firstname">
+                                </p>
+                                <p class="row-in-form">
+                                    <label for="add">Line2:</label>
+                                    <input type="text" name="add" value="" placeholder="Street at apartment number" wire:model="firstname">
                                 </p>
                                 <p class="row-in-form">
                                     <label for="country">Country<span>*</span></label>
-                                    <input type="text" name="country" value="" placeholder="United States">
+                                    <input type="text" name="country" value="" placeholder="United States" wire:model="firstname">
                                 </p>
                                 <p class="row-in-form">
                                     <label for="zip-code">Postcode / ZIP:</label>
-                                    <input type="number" name="zip-code" value="" placeholder="Your postal code">
+                                    <input type="number" name="zip-code" value="" placeholder="Your postal code" wire:model="firstname">
+                                </p>
+                                <p class="row-in-form">
+                                    <label for="province">Province<span>*</span></label>
+                                    <input type="text" name="province" value="" placeholder="Province" wire:model="firstname">
                                 </p>
                                 <p class="row-in-form">
                                     <label for="city">Town / City<span>*</span></label>
-                                    <input type="text" name="city" value="" placeholder="City name">
+                                    <input type="text" name="city" value="" placeholder="City name" wire:model="firstname">
                                 </p>
                                 <p class="row-in-form fill-wife">
                                     <label class="checkbox-field">
@@ -55,7 +63,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     @if ($ship_to_different)
 
                         <div class="col-md-12">
@@ -98,7 +106,7 @@
                             </div>
                         </div>
                     @endif
-                    
+
                 </div>
 
 				<div class="summary summary-checkout">
