@@ -3,8 +3,10 @@
 namespace App\Http\Livewire;
 
 use App\Models\Order;
+use App\Models\OrderItem;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Cart;
 
 class CheckoutComponent extends Component
 {
@@ -79,7 +81,23 @@ class CheckoutComponent extends Component
         $order->country = $this->country;
         $order->zipcode = $this->zipcode;
         $order->status = 'ordered';
-        $order->is_shipping_different = $this->ship_to_different ? ;
+        $order->is_shipping_different = $this->ship_to_different ? 1:0;
+        $order->save();
+
+        foreach(Cart::instance('cart')->content() as $item)
+        {
+            $orderItem = new OrderItem();
+            $orderItem->product_id = $item->id;
+            $orderItem->order_id = $order->id;
+            $orderItem->price = $item->price;
+            $orderItem->quantity = $item->qty;
+            $orderItem->save();
+        }
+
+        if($this->ship_to_different)
+        {
+            
+        }
 
     }
 
