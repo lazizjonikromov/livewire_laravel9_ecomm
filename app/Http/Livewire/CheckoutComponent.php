@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Order;
 use App\Models\OrderItem;
+use App\Models\Shipping;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Cart;
@@ -96,7 +97,20 @@ class CheckoutComponent extends Component
 
         if($this->ship_to_different)
         {
-            
+            $this->validate([
+                's_firstname' => 'required',
+                's_lastname' => 'required',
+                's_email' => 'required|email',
+                's_mobile' => 'required|numeric',
+                's_line1' => 'required',
+                's_city' => 'required',
+                's_province' => 'required',
+                's_country' => 'required',
+                's_zipcode' => 'required'
+            ]);
+
+            $shipping = new Shipping();
+
         }
 
     }
