@@ -35,6 +35,8 @@ class CheckoutComponent extends Component
     public $s_country;
     public $s_zipcode;
 
+    public $paymentmode;
+
     public function updated($fields)
     {
         $this->validateOnly($fields, [
