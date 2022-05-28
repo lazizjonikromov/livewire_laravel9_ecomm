@@ -48,10 +48,6 @@
                                 </p>
                                 <p class="row-in-form fill-wife">
                                     <label class="checkbox-field">
-                                        <input name="create-account" id="create-account" value="forever" type="checkbox">
-                                        <span>Create an account?</span>
-                                    </label>
-                                    <label class="checkbox-field">
                                         <input name="different-add" id="different-add" value="forever" type="checkbox">
                                         <span>Ship to a different address?</span>
                                     </label>
@@ -59,6 +55,47 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-md-12">
+                        <div class="wrap-address-billing">
+                            <h3 class="box-title">Shipping Address</h3>
+                            <div class="billing-address">
+                                <p class="row-in-form">
+                                    <label for="fname">first name<span>*</span></label>
+                                    <input type="text" name="fname" value="" placeholder="Your name">
+                                </p>
+                                <p class="row-in-form">
+                                    <label for="lname">last name<span>*</span></label>
+                                    <input type="text" name="lname" value="" placeholder="Your last name">
+                                </p>
+                                <p class="row-in-form">
+                                    <label for="email">Email Addreess:</label>
+                                    <input type="email" name="email" value="" placeholder="Type your email">
+                                </p>
+                                <p class="row-in-form">
+                                    <label for="phone">Phone number<span>*</span></label>
+                                    <input type="number" name="phone" value="" placeholder="10 digits format">
+                                </p>
+                                <p class="row-in-form">
+                                    <label for="add">Address:</label>
+                                    <input type="text" name="add" value="" placeholder="Street at apartment number">
+                                </p>
+                                <p class="row-in-form">
+                                    <label for="country">Country<span>*</span></label>
+                                    <input type="text" name="country" value="" placeholder="United States">
+                                </p>
+                                <p class="row-in-form">
+                                    <label for="zip-code">Postcode / ZIP:</label>
+                                    <input type="number" name="zip-code" value="" placeholder="Your postal code">
+                                </p>
+                                <p class="row-in-form">
+                                    <label for="city">Town / City<span>*</span></label>
+                                    <input type="text" name="city" value="" placeholder="City name">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
 				<div class="summary summary-checkout">
