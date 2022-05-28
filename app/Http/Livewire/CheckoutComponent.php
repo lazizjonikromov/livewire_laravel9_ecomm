@@ -46,8 +46,22 @@ class CheckoutComponent extends Component
             'city' => 'required',
             'province' => 'required',
             'country' => 'required',
-            'zipcode' => 'required',
+            'zipcode' => 'required'
         ]);
+
+        if ($this->ship_to_different) {
+            $this->validateOnly($fields, [
+                's_firstname' => 'required',
+                's_lastname' => 'required',
+                's_email' => 'required|email',
+                's_mobile' => 'required|numeric',
+                's_line1' => 'required',
+                's_city' => 'required',
+                's_province' => 'required',
+                's_country' => 'required',
+                's_zipcode' => 'required'
+            ]);
+        }
     }
 
     public function placeOrder()
