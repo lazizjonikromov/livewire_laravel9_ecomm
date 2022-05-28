@@ -37,6 +37,7 @@ class CheckoutComponent extends Component
     public $s_zipcode;
 
     public $paymentmode;
+    public $thankyou;
 
     public function updated($fields)
     {
@@ -150,6 +151,7 @@ class CheckoutComponent extends Component
             $transaction->save();
         }
 
+        $this->thankyou = 1;
         Cart::instance('cart')->destroy();
         session()->forget('checkout');
 
