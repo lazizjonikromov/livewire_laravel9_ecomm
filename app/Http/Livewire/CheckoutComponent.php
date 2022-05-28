@@ -30,6 +30,37 @@ class CheckoutComponent extends Component
     public $s_country;
     public $s_zipcode;
 
+    public function updated($fields)
+    {
+        $this->validateOnly($fields, [
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'email' => 'required|email',
+            'mobile' => 'required|numeric',
+            'line1' => 'required',
+            'city' => 'required',
+            'province' => 'required',
+            'country' => 'required',
+            'zipcode' => 'required'
+        ]);
+    }
+
+
+    public function placeOrder()
+    {
+        $this->validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'email' => 'required|email',
+            'mobile' => 'required|numeric',
+            'line1' => 'required',
+            'city' => 'required',
+            'province' => 'required',
+            'country' => 'required',
+            'zipcode' => 'required'
+        ]);
+    }
+
     public function render()
     {
         return view('livewire.checkout-component')->layout("layouts.base");
