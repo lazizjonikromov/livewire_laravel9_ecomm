@@ -19,6 +19,17 @@ class CheckoutComponent extends Component
     public $country;
     public $zipcode;
 
+    public $s_firstname;
+    public $s_lastname;
+    public $s_email;
+    public $s_mobile;
+    public $s_line1;
+    public $s_line2;
+    public $s_city;
+    public $s_province;
+    public $s_country;
+    public $s_zipcode;
+
     public function render()
     {
         return view('livewire.checkout-component')->layout("layouts.base");

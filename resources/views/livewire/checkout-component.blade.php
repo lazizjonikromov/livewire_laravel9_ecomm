@@ -20,39 +20,39 @@
                                 </p>
                                 <p class="row-in-form">
                                     <label for="lname">last name<span>*</span></label>
-                                    <input type="text" name="lname" value="" placeholder="Your last name" wire:model="firstname">
+                                    <input type="text" name="lname" value="" placeholder="Your last name" wire:model="lastname">
                                 </p>
                                 <p class="row-in-form">
                                     <label for="email">Email Addreess:</label>
-                                    <input type="email" name="email" value="" placeholder="Type your email" wire:model="firstname">
+                                    <input type="email" name="email" value="" placeholder="Type your email" wire:model="email">
                                 </p>
                                 <p class="row-in-form">
                                     <label for="phone">Phone number<span>*</span></label>
-                                    <input type="number" name="phone" value="" placeholder="10 digits format" wire:model="firstname">
+                                    <input type="number" name="phone" value="" placeholder="10 digits format" wire:model="mobile">
                                 </p>
                                 <p class="row-in-form">
                                     <label for="add">Line1:</label>
-                                    <input type="text" name="add" value="" placeholder="Street at apartment number" wire:model="firstname">
+                                    <input type="text" name="add" value="" placeholder="Street at apartment number" wire:model="line1">
                                 </p>
                                 <p class="row-in-form">
                                     <label for="add">Line2:</label>
-                                    <input type="text" name="add" value="" placeholder="Street at apartment number" wire:model="firstname">
+                                    <input type="text" name="add" value="" placeholder="Street at apartment number" wire:model="line2">
                                 </p>
                                 <p class="row-in-form">
                                     <label for="country">Country<span>*</span></label>
-                                    <input type="text" name="country" value="" placeholder="United States" wire:model="firstname">
-                                </p>
-                                <p class="row-in-form">
-                                    <label for="zip-code">Postcode / ZIP:</label>
-                                    <input type="number" name="zip-code" value="" placeholder="Your postal code" wire:model="firstname">
+                                    <input type="text" name="country" value="" placeholder="United States" wire:model="country">
                                 </p>
                                 <p class="row-in-form">
                                     <label for="province">Province<span>*</span></label>
-                                    <input type="text" name="province" value="" placeholder="Province" wire:model="firstname">
+                                    <input type="text" name="province" value="" placeholder="Province" wire:model="province">
                                 </p>
                                 <p class="row-in-form">
                                     <label for="city">Town / City<span>*</span></label>
-                                    <input type="text" name="city" value="" placeholder="City name" wire:model="firstname">
+                                    <input type="text" name="city" value="" placeholder="City name" wire:model="city">
+                                </p>
+                                <p class="row-in-form">
+                                    <label for="zip-code">Postcode / ZIP:</label>
+                                    <input type="number" name="zip-code" value="" placeholder="Your postal code" wire:model="zipcode">
                                 </p>
                                 <p class="row-in-form fill-wife">
                                     <label class="checkbox-field">
