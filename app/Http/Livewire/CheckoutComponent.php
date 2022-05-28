@@ -157,8 +157,25 @@ class CheckoutComponent extends Component
 
     }
 
+    public function verifyForCheckout()
+    {
+        if(!Auth::check())
+        {
+            return redirect()->route('login');
+        }
+        else if($this->thankyou)
+        {
+            return redirect()->route('thankyou');
+        }
+        else if(!session()->get('checkout'))
+        {
+            return redirect()->route('product.cart');
+        }
+    }
+
     public function render()
     {
+        $this->verifyForCheckout();
         return view('livewire.checkout-component')->layout('layouts.base');
     }
 }

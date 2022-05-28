@@ -9,7 +9,7 @@
 				</ul>
 			</div>
 			<div class=" main-content-area">
-                <form>
+                <form wire:submit.prevent="placeOrder">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="wrap-address-billing">
