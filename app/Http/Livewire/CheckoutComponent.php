@@ -148,6 +148,9 @@ class CheckoutComponent extends Component
             $transaction->save();
         }
 
+        Cart::instance('cart')->destroy();
+        session()->forget('checkout');
+
     }
 
     public function render()
