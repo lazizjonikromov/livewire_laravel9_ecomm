@@ -46,10 +46,9 @@ class CheckoutComponent extends Component
             'city' => 'required',
             'province' => 'required',
             'country' => 'required',
-            'zipcode' => 'required'
+            'zipcode' => 'required',
         ]);
     }
-
 
     public function placeOrder()
     {
@@ -62,7 +61,7 @@ class CheckoutComponent extends Component
             'city' => 'required',
             'province' => 'required',
             'country' => 'required',
-            'zipcode' => 'required'
+            'zipcode' => 'required',
         ]);
 
         $order = new Order();
@@ -82,11 +81,10 @@ class CheckoutComponent extends Component
         $order->country = $this->country;
         $order->zipcode = $this->zipcode;
         $order->status = 'ordered';
-        $order->is_shipping_different = $this->ship_to_different ? 1:0;
+        $order->is_shipping_different = $this->ship_to_different ? 1 : 0;
         $order->save();
 
-        foreach(Cart::instance('cart')->content() as $item)
-        {
+        foreach (Cart::instance('cart')->content() as $item) {
             $orderItem = new OrderItem();
             $orderItem->product_id = $item->id;
             $orderItem->order_id = $order->id;
@@ -95,8 +93,7 @@ class CheckoutComponent extends Component
             $orderItem->save();
         }
 
-        if($this->ship_to_different)
-        {
+        if ($this->ship_to_different) {
             $this->validate([
                 's_firstname' => 'required',
                 's_lastname' => 'required',
@@ -106,17 +103,27 @@ class CheckoutComponent extends Component
                 's_city' => 'required',
                 's_province' => 'required',
                 's_country' => 'required',
-                's_zipcode' => 'required'
+                's_zipcode' => 'required',
             ]);
 
             $shipping = new Shipping();
-
+            $shipping->order_id = $order->id;
+            $shipping->firstname = $this->s_firstname;
+            $shipping->lastname = $this->s_lastname;
+            $shipping->email = $this->s_email;
+            $shipping->mobile = $this->s_mobile;
+            $shipping->line1 = $this->s_line1;
+            $shipping->line2 = $this->s_line2;
+            $shipping->city = $this->s_city;
+            $shipping->province = $this->s_province;
+            $shipping->country = $this->s_country;
+            $shipping->zipcode = $this->s_zipcode;
+            $shipping->save();
         }
-
     }
 
     public function render()
     {
-        return view('livewire.checkout-component')->layout("layouts.base");
+        return view('livewire.checkout-component')->layout('layouts.base');
     }
 }
