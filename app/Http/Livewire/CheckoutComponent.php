@@ -227,7 +227,12 @@ class CheckoutComponent extends Component
 
                 if($charge['status'] == 'succeeded')
                 {
-                    
+                    $this->makeTransaction($order->id, 'approved');
+                    $this->resetCart();
+                }
+                else{
+                    session()->flash('stripe_error', 'Error in Transaction!');
+                    $this->thankyou = 0;
                 }
 
             }
