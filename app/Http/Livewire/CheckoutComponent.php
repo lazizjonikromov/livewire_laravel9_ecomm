@@ -9,6 +9,7 @@ use App\Models\Transaction;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Cart;
+use Exception;
 use Stripe;
 
 class CheckoutComponent extends Component
@@ -235,6 +236,9 @@ class CheckoutComponent extends Component
                     $this->thankyou = 0;
                 }
 
+            } catch(Exception $e){
+                session()->flash('stripe_error', $e->getMessage());
+                $this->thankyou = 0;
             }
         }
 
