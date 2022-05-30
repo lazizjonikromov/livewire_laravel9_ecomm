@@ -100,6 +100,16 @@ class CheckoutComponent extends Component
             'paymentmode' => 'required'
         ]);
 
+        if($this->paymentmode == 'card')
+        {
+            $this->validate([
+                'card_no' => 'required|numeric',
+                'exp_month' => 'required|numeric',
+                'exp_year' => 'required|numeric',
+                'cvc' => 'required|numeric'
+            ]);
+        }
+
         $order = new Order();
         $order->user_id = Auth::user()->id;
         $order->subtotal = session()->get('checkout')['subtotal'];
@@ -159,18 +169,31 @@ class CheckoutComponent extends Component
 
         if($this->paymentmode == 'cod')
         {
-            $transaction = new Transaction();
-            $transaction->user_id = Auth::user()->id;
-            $transaction->order_id = $order->id;
-            $transaction->mode = 'cod';
-            $transaction->status = 'pending';
-            $transaction->save();
+            $this->makeTransaction($order->id,'pending');
+            $this->resetCart();
+        }
+        else if($this->paymentmode == 'card')
+        {
+
         }
 
+    }
+
+    public function resetCart()
+    {
         $this->thankyou = 1;
         Cart::instance('cart')->destroy();
         session()->forget('checkout');
+    }
 
+    public function makeTransaction($order_id,$status)
+    {
+        $transaction = new Transaction();
+        $transaction->user_id = Auth::user()->id;
+        $transaction->order_id = $order->id;
+        $transaction->mode = $this->paymentmode;
+        $transaction->status = $status;
+        $transaction->save();
     }
 
     public function verifyForCheckout()
