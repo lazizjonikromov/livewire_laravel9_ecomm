@@ -255,7 +255,7 @@ class CheckoutComponent extends Component
     {
         $transaction = new Transaction();
         $transaction->user_id = Auth::user()->id;
-        $transaction->order_id = $order->id;
+        $transaction->order_id = $order_id;
         $transaction->mode = $this->paymentmode;
         $transaction->status = $status;
         $transaction->save();
