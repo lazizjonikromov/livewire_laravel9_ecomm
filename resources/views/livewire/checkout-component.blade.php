@@ -175,6 +175,39 @@
                     <div class="summary summary-checkout">
                         <div class="summary-item payment-method">
                             <h4 class="title-box">Payment Method</h4>
+                            <div class="wrap-address-billing">
+                                <p class="row-in-form">
+                                    <label for="card-no">Card Number:</label>
+                                    <input type="text" name="card-no" value="" placeholder="Card Number" wire:model="s_zipcode">
+                                    @error('s_zipcode')
+                                        <span style="color: #ff2832;">{{ $message }}</span>
+                                    @enderror
+                                </p>
+
+                                <p class="row-in-form">
+                                    <label for="exp-month">Expiry Month:</label>
+                                    <input type="text" name="exp-month" value="" placeholder="MM" wire:model="s_zipcode">
+                                    @error('s_zipcode')
+                                        <span style="color: #ff2832;">{{ $message }}</span>
+                                    @enderror
+                                </p>
+
+                                <p class="row-in-form">
+                                    <label for="exp-year">Expiry Year:</label>
+                                    <input type="text" name="exp-year" value="" placeholder="YYYY" wire:model="s_zipcode">
+                                    @error('s_zipcode')
+                                        <span style="color: #ff2832;">{{ $message }}</span>
+                                    @enderror
+                                </p>
+
+                                <p class="row-in-form">
+                                    <label for="cvc">CVC:</label>
+                                    <input type="password" name="cvc" value="" placeholder="CVC" wire:model="s_zipcode">
+                                    @error('s_zipcode')
+                                        <span style="color: #ff2832;">{{ $message }}</span>
+                                    @enderror
+                                </p>
+                            </div>
                             <p class="summary-info"><span class="title">Check / Money order</span></p>
                             <p class="summary-info"><span class="title">Credit Cart (saved)</span></p>
                             <div class="choose-payment-methods">
