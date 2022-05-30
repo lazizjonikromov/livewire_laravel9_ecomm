@@ -39,6 +39,11 @@ class CheckoutComponent extends Component
     public $paymentmode;
     public $thankyou;
 
+    public $card_no;
+    public $exp_month;
+    public $exp_year;
+    public $cvc;
+
     public function updated($fields)
     {
         $this->validateOnly($fields, [
@@ -67,6 +72,17 @@ class CheckoutComponent extends Component
                 's_zipcode' => 'required'
             ]);
         }
+
+        if($this->paymentmode == 'card')
+        {
+            $this->validateOnly($fields, [
+                'card_no' => 'required|numeric',
+                'exp_month' => 'required|numeric',
+                'exp_year' => 'required|numeric',
+                'cvc' => 'required|numeric'
+            ]);
+        }
+
     }
 
     public function placeOrder()
