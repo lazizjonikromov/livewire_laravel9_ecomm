@@ -9,6 +9,7 @@ use App\Models\Transaction;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Cart;
+use Stripe;
 
 class CheckoutComponent extends Component
 {
@@ -174,7 +175,62 @@ class CheckoutComponent extends Component
         }
         else if($this->paymentmode == 'card')
         {
+            $stripe = Stripe::make(env('STRIPE_KEY'));
 
+            try{
+                $token = $stripe->tokens()->create([
+                    'card' => [
+                        'number' => $this->card_no,
+                        'exp_month' => $this->exp_month,
+                        'exp_year' => $this->exp_year,
+                        'cvc' => $this->cvc
+                    ]
+                ]);
+
+                if(!isset($token['id']))
+                {
+                    session()->flash('stripe_error', 'The stripe token was not generated correctly!');
+                    $this->thankyou = 0;
+                }
+
+                $customer = $stripe->customer()->create([
+                    'name' => $this->firstname . ' ' . $this->lastname,
+                    'email' =>$this->email,
+                    'phone' =>$this->phone,
+                    'address' =>[
+                        'line1' => $this->line1,
+                        'postal_code' => $this->zipcode,
+                        'city' => $this->city,
+                        'state' => $this->province,
+                        'country' => $this->country
+                    ],
+
+                    'shipping' =>[
+                        'name' => $this->firstname . ' ' . $this->lastname,
+                        'address' =>[
+                            'line1' => $this->line1,
+                            'postal_code' => $this->zipcode,
+                            'city' => $this->city,
+                            'state' => $this->province,
+                            'country' => $this->country
+                        ],
+                    ],
+                    'source' => $token['id']
+                ]);
+
+                $charge = $stripe->charges()->create([
+                    'customer' => $customer['id'],
+                    'currency' => 'USD',
+                    'amount' => session()->get('checkout')['total'],
+                    'description' => 'Payment for order no ' . $order->id
+                ]);
+
+                if($charge['status'] == 'succeeded')
+                {
+                    
+                }
+
+            }
         }
 
     }
