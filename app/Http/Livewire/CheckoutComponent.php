@@ -194,10 +194,10 @@ class CheckoutComponent extends Component
                     $this->thankyou = 0;
                 }
 
-                $customer = $stripe->customer()->create([
+                $customer = $stripe->customers()->create([
                     'name' => $this->firstname . ' ' . $this->lastname,
                     'email' =>$this->email,
-                    'phone' =>$this->phone,
+                    'phone' =>$this->mobile,
                     'address' =>[
                         'line1' => $this->line1,
                         'postal_code' => $this->zipcode,
@@ -218,7 +218,7 @@ class CheckoutComponent extends Component
                     ],
                     'source' => $token['id']
                 ]);
-
+ 
                 $charge = $stripe->charges()->create([
                     'customer' => $customer['id'],
                     'currency' => 'USD',
