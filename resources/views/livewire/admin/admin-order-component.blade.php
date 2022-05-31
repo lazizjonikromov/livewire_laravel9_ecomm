@@ -17,10 +17,10 @@
                         All Orders
                     </div>
                     <div class="panel-body">
-                        <table class="table-striped">
+                        <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th>OrderId</th>
+                                    <th>Order Id</th>
                                     <th>Subtotal</th>
                                     <th>Discount</th>
                                     <th>Tax</th>
@@ -38,10 +38,10 @@
                                 @foreach ($orders as $order)
                                     <tr>
                                         <td>{{ $order->id }}</td>
-                                        <td>{{ $order->subtotal }}</td>
-                                        <td>{{ $order->discount }}</td>
-                                        <td>{{ $order->tax }}</td>
-                                        <td>{{ $order->total }}</td>
+                                        <td>${{ $order->subtotal }}</td>
+                                        <td>${{ $order->discount }}</td>
+                                        <td>${{ $order->tax }}</td>
+                                        <td>${{ $order->total }}</td>
                                         <td>{{ $order->firstname }}</td>
                                         <td>{{ $order->lastname }}</td>
                                         <td>{{ $order->mobile }}</td>
@@ -53,7 +53,7 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        {{ $orders->links }}
+                        {{ $orders->links() }}
                     </div>
                 </div>
             </div>
