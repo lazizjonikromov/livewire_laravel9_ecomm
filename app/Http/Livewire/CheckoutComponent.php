@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Cart;
 use Exception;
+use Spatie\LaravelIgnition\Support\LaravelVersion;
 use Stripe;
 
 class CheckoutComponent extends Component
@@ -181,7 +182,7 @@ class CheckoutComponent extends Component
             try{
                 $token = $stripe->tokens()->create([
                     'card' => [
-                        'number' => $this->card_no,
+                        'number' => $this->card_no, 
                         'exp_month' => $this->exp_month,
                         'exp_year' => $this->exp_year,
                         'cvc' => $this->cvc
@@ -236,7 +237,8 @@ class CheckoutComponent extends Component
                     $this->thankyou = 0;
                 }
 
-            } catch(Exception $e){
+            }
+            catch(Exception $e){
                 session()->flash('stripe_error', $e->getMessage());
                 $this->thankyou = 0;
             }
