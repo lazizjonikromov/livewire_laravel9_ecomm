@@ -11,7 +11,7 @@
 
                             <h3 class="box-title">Products Name</h3>
                             <ul class="products-cart">
-                                @foreach ($order->$orderItems as $item)
+                                @foreach ($order->orderItems as $item)
                                     <li class="pr-cart-item">
                                         <div class="product-image">
                                             <figure><img
@@ -39,9 +39,9 @@
                             <div class="order-summary">
                                 <h4 class="title-box">Order Summary</h4>
                                 <p class="summary-info"><span class="title">Subtotal</span><b class="index">${{ $order->subtotal }}</b></p>
-                                <p class="summary-info"><span class="title">Subtotal</span><b class="index">${{ $order->subtotal }}</b></p>
-                                <p class="summary-info"><span class="title">Subtotal</span><b class="index">${{ $order->subtotal }}</b></p>
-                                <p class="summary-info"><span class="title">Subtotal</span><b class="index">${{ $order->subtotal }}</b></p>
+                                <p class="summary-info"><span class="title">Tax</span><b class="index">${{ $order->tax }}</b></p>
+                                <p class="summary-info"><span class="title">Shipping</span><b class="index">Free Shipping</b></p>
+                                <p class="summary-info"><span class="title">Total</span><b class="index">${{ $order->total }}</b></p>
                             </div>
                         </div>
                     </div>
@@ -56,7 +56,7 @@
                         Billing Details
                     </div>
                     <div class="panel-body">
-
+                        
                     </div>
                 </div>
             </div>
