@@ -56,7 +56,20 @@
                         Billing Details
                     </div>
                     <div class="panel-body">
-                        
+                        <table class="table">
+                            <tr>
+                                <th>First Name</th>
+                                <td>{{ $order->firstname }}</td>
+                                <th>Last Name</th>
+                                <td>{{ $order->lastname }}</td>
+                            </tr>
+                            <tr>
+                                <th>Phone</th>
+                                <td>{{ $order->mobile }}</td>
+                                <th>Email</th>
+                                <td>{{ $order->email }}</td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </div>
