@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Models\Order;
 use Livewire\Component;
 
 class AdminOrderDetailsComponent extends Component
@@ -15,6 +16,7 @@ class AdminOrderDetailsComponent extends Component
 
     public function render()
     {
-        return view('livewire.admin.admin-order-details-component')->layout('layouts.base');
+        $order = Order::find($this->order_id);
+        return view('livewire.admin.admin-order-details-component',['order'=>$order])->layout('layouts.base');
     }
 }
