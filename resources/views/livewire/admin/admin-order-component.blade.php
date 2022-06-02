@@ -53,6 +53,11 @@
                                         <td>
                                             <a href="{{ route('admin.orderdetails',['order_id'=>$order->id]) }}" class="btn btn-info btn-sm">Details</a>
                                         </td>
+                                        <td>
+                                            <div class="dropdown">
+                                                
+                                            </div>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
