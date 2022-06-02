@@ -7,7 +7,7 @@
                         <div class="row">
                             <div class="col-md-6">Ordered Items</div>
                             <div class="col-md-6">
-                                <a href="{{ route('admin.orders') }}" class="btn btn-success pull-right">All Order</a>
+                                <a href="{{ route('admin.orders') }}" class="btn btn-success pull-right">All Orders</a>
                             </div>
                         </div>
                     </div>
@@ -144,18 +144,33 @@
             </div>
         @endif
 
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        Transaction
-                    </div>
-                    <div class="panel-body">
-
+        @if ($order->transaction)
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Transaction
+                        </div>
+                        <div class="panel-body">
+                            <table class="table">
+                                <tr>
+                                    <th>Transaction Mode</th>
+                                    <td>{{ $order->transaction->mode }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Status</th>
+                                    <td>{{ $order->transaction->status }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Transaction Date</th>
+                                    <td>{{ $order->transaction->created_at }}</td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        @endif
 
     </div>
 </div>
