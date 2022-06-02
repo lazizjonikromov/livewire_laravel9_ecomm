@@ -14,7 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::table('orders', function (Blueprint $table) {
-            //
+            $table->date('delivered_date')->nullable();
+            $table->date('canceled_date')->nullable();
         });
     }
 
