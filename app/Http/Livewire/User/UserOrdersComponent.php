@@ -8,6 +8,6 @@ class UserOrdersComponent extends Component
 {
     public function render()
     {
-        return view('livewire.user.user-orders-component');
+        return view('livewire.user.user-orders-component')->layout('layouts.base');
     }
 }
