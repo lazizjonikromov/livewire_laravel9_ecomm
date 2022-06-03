@@ -55,7 +55,11 @@
                                         </td>
                                         <td>
                                             <div class="dropdown">
-                                                
+                                                <button class="btn btn-success btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                                                    Status
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul></ul>
                                             </div>
                                         </td>
                                     </tr>
