@@ -32,7 +32,7 @@
                                     <th>Zipcode</th>
                                     <th>Status</th>
                                     <th>Order Date</th>
-                                    <th>Action</th>
+                                    <th colspan="2" class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -59,7 +59,10 @@
                                                     Status
                                                     <span class="caret"></span>
                                                 </button>
-                                                <ul></ul>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="#">Delivered</a></li>
+                                                    <li><a href="#">Canceled</a></li>
+                                                </ul>
                                             </div>
                                         </td>
                                     </tr>
