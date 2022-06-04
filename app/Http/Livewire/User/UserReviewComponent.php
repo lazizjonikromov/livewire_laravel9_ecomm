@@ -17,6 +17,14 @@ class UserReviewComponent extends Component
         $this->order_item_id = $order_item_id;
     }
 
+    public function updated($fields)
+    {
+        $this->validateOnly($fields,[
+            'rating' => 'required',
+            'comment' => 'required'
+        ]);
+    }
+
     public function addReview()
     {
         $this->validate([
