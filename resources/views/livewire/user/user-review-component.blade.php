@@ -38,7 +38,7 @@
                                         <label for="rated-4"></label>
                                         <input type="radio" id="rated-4" name="rating" value="4" wire:model="rating">
                                         <label for="rated-5"></label>
-                                        <input type="radio" id="rated-5" name="rating" value="5" checked="checked" wire:model="rating  ">
+                                        <input type="radio" id="rated-5" name="rating" value="5" checked="checked" wire:model="rating">
                                     </p>
                                 </div>
                                 <p class="comment-form-comment">

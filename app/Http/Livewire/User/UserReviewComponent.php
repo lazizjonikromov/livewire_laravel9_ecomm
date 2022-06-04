@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\User;
 
 use App\Models\OrderItem;
+use App\Models\Review;
 use Livewire\Component;
 
 class UserReviewComponent extends Component
@@ -19,8 +20,16 @@ class UserReviewComponent extends Component
     public function addReview()
     {
         $this->validate([
-
+            'rating' => 'required',
+            'comment' => 'required'
         ]);
+
+        $review = new Review();
+        $review->rating = $this->rating;
+        $review->comment = $this->comment;
+        $review->rstatus = true;
+        $review->save();
+        session()->flash('message', 'Your review has been added successfully!');
     }
 
     public function render()
