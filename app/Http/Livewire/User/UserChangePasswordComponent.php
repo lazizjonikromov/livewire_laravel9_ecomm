@@ -2,6 +2,9 @@
 
 namespace App\Http\Livewire\User;
 
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 
 class UserChangePasswordComponent extends Component
@@ -24,6 +27,11 @@ class UserChangePasswordComponent extends Component
             'current_password'=>'required',
             'password'=>'required|min:8|confirmed|different:current_password'
         ]);
+
+        if(Hash::check($this->current_password,Auth::user()->password))
+        {
+            $user = User::findOrFail(Auth::user()->id);
+        }
     }
 
     public function render()

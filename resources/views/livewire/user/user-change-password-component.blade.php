@@ -7,11 +7,14 @@
                         Change Password
                     </div>
                     <div class="panel-body">
-                        <form class="form-horizontal">
+                        <form class="form-horizontal" wire:submit.prevent="changePassword">
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Current Password</label>
                                 <div class="col-md-4">
                                     <input type="password" class="form-control input-md" placeholder="Current Password" name="current_password" wire:model="current_password">
+                                    @error('current_password')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
                                 </div>
                             </div>
 
@@ -19,6 +22,9 @@
                                 <label class="col-md-4 control-label">New Password</label>
                                 <div class="col-md-4">
                                     <input type="password" class="form-control input-md" placeholder="New Password" name="password" wire:model="password">
+                                    @error('password')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
                                 </div>
                             </div>
 
@@ -26,6 +32,9 @@
                                 <label class="col-md-4 control-label">Confirm Password</label>
                                 <div class="col-md-4">
                                     <input type="password" class="form-control input-md" placeholder="Confirm Password" name="password_confirmation" wire:model="password_confirmation">
+                                    @error('password_confirmation')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
                                 </div>
                             </div>
 
