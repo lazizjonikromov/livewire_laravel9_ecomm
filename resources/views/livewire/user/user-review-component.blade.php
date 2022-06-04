@@ -30,21 +30,21 @@
                                     <p class="stars">
 
                                         <label for="rated-1"></label>
-                                        <input type="radio" id="rated-1" name="rating" value="1">
+                                        <input type="radio" id="rated-1" name="rating" value="1" wire:model="rating">
                                         <label for="rated-2"></label>
-                                        <input type="radio" id="rated-2" name="rating" value="2">
+                                        <input type="radio" id="rated-2" name="rating" value="2" wire:model="rating">
                                         <label for="rated-3"></label>
-                                        <input type="radio" id="rated-3" name="rating" value="3">
+                                        <input type="radio" id="rated-3" name="rating" value="3" wire:model="rating">
                                         <label for="rated-4"></label>
-                                        <input type="radio" id="rated-4" name="rating" value="4">
+                                        <input type="radio" id="rated-4" name="rating" value="4" wire:model="rating">
                                         <label for="rated-5"></label>
-                                        <input type="radio" id="rated-5" name="rating" value="5" checked="checked">
+                                        <input type="radio" id="rated-5" name="rating" value="5" checked="checked" wire:model="rating  ">
                                     </p>
                                 </div>
                                 <p class="comment-form-comment">
                                     <label for="comment">Your review <span class="required">*</span>
                                     </label>
-                                    <textarea id="comment" name="comment" cols="45" rows="8"></textarea>
+                                    <textarea id="comment" name="comment" cols="45" rows="8" wire:model="comment"></textarea>
                                 </p>
                                 <p class="form-submit">
                                     <input name="submit" type="submit" id="submit" class="submit" value="Submit">
