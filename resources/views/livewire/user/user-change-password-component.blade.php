@@ -16,16 +16,16 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-4 control-label">Current Password</label>
+                                <label class="col-md-4 control-label">New Password</label>
                                 <div class="col-md-4">
-                                    <input type="password" class="form-control input-md" placeholder="Current Password" name="current_password">
+                                    <input type="password" class="form-control input-md" placeholder="New Password" name="password">
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-4 control-label">Current Password</label>
+                                <label class="col-md-4 control-label">Confirm Password</label>
                                 <div class="col-md-4">
-                                    <input type="password" class="form-control input-md" placeholder="Current Password" name="current_password">
+                                    <input type="password" class="form-control input-md" placeholder="Confirm Password" name="password_confirmation">
                                 </div>
                             </div>
 
