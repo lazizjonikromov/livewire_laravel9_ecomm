@@ -2,13 +2,21 @@
     <div class="container" style="padding: 30px 0;">
         <div class="row">
             <div class="col-md-12">
+                @if (Session::has('order_message'))
+                    <div class="alert alert-success" role="alert">
+                        {{ Session::get('order_message') }}
+                    </div>
+                @endif
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="row">
-                            <div class="col-md-6">Ordered Details</div>
+                            <div class="col-md-6">Order Details</div>
                             <div class="col-md-6">
                                 <a href="{{ route('user.orders') }}" class="btn btn-success pull-right">My Orders</a>
-                                <a href="#" class="btn btn-warning pull-right">Cancel Order</a>
+                                @if ($order->status == 'ordered')
+                                    <a href="#" wire:click.prevent="cancelOrder" style="margin-right:20px;" class="btn btn-warning pull-right">Cancel
+                                    Order</a>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -21,10 +29,10 @@
                                 <td>{{ $order->created_at }}</td>
                                 <th>Status</th>
                                 <td>{{ $order->status }}</td>
-                                @if ($order->status == "delivered")
+                                @if ($order->status == 'delivered')
                                     <th>Delivery Date</th>
                                     <td>{{ $order->delivered_date }}</td>
-                                @elseif ($order->status == "canceled")
+                                @elseif ($order->status == 'canceled')
                                     <th>Cancellation Date</th>
                                     <td>{{ $order->canceled_date }}</td>
                                 @endif
@@ -72,10 +80,14 @@
                         <div class="summary">
                             <div class="order-summary">
                                 <h4 class="title-box">Order Summary</h4>
-                                <p class="summary-info"><span class="title">Subtotal</span><b class="index">${{ $order->subtotal }}</b></p>
-                                <p class="summary-info"><span class="title">Tax</span><b class="index">${{ $order->tax }}</b></p>
-                                <p class="summary-info"><span class="title">Shipping</span><b class="index">Free Shipping</b></p>
-                                <p class="summary-info"><span class="title">Total</span><b class="index">${{ $order->total }}</b></p>
+                                <p class="summary-info"><span class="title">Subtotal</span><b
+                                        class="index">${{ $order->subtotal }}</b></p>
+                                <p class="summary-info"><span class="title">Tax</span><b
+                                        class="index">${{ $order->tax }}</b></p>
+                                <p class="summary-info"><span class="title">Shipping</span><b
+                                        class="index">Free Shipping</b></p>
+                                <p class="summary-info"><span class="title">Total</span><b
+                                        class="index">${{ $order->total }}</b></p>
                             </div>
                         </div>
                     </div>
