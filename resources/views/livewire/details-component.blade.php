@@ -35,6 +35,12 @@
 						</div>
 						<div class="detail-info">
 							<div class="product-rating">
+                                @php
+                                    $avgrating = 0;
+                                @endphp
+                                @foreach ($product->orderItems->where('rstatus',1) as $orderItem)
+
+                                @endforeach
                                 <i class="fa fa-star" aria-hidden="true"></i>
                                 <i class="fa fa-star" aria-hidden="true"></i>
                                 <i class="fa fa-star" aria-hidden="true"></i>
@@ -110,7 +116,7 @@
 
 									<div class="wrap-review-form">
 
-										
+
 
 
 
