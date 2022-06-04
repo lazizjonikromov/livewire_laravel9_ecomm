@@ -60,7 +60,7 @@
                                                     <span class="caret"></span>
                                                 </button>
                                                 <ul class="dropdown-menu">
-                                                    <li><a href="#">Delivered</a></li>
+                                                    <li><a href="#" wire:click.prevent="updateOrderStatus({{ $order->id }}, 'delivered')">Delivered</a></li>
                                                     <li><a href="#">Canceled</a></li>
                                                 </ul>
                                             </div>

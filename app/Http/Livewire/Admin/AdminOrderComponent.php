@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Order;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -16,8 +17,14 @@ class AdminOrderComponent extends Component
         $order->status = $status;
         if($status == 'delivered')
         {
-            
+            $order->delivered_date = DB::raw('CURRENT_DATE');
         }
+        else if($status == 'canceled')
+        {
+            $order->canceled_date = DB::raw('CURRENT_DATE');
+        }
+        $order->save();
+        session()->flash('order_message', 'Order status has been updated successfully!');
     }
 
     public function render()
