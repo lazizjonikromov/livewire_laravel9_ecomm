@@ -186,8 +186,7 @@
                                                                     datetime="2008-02-14 20:00">{{ Carbon\Carbon::parse($orderItem->review->created_at)->format('d F Y g:i A') }}</time>
                                                             </p>
                                                             <div class="description">
-                                                                <p>Pellentesque habitant morbi tristique senectus et
-                                                                    netus et malesuada fames ac turpis egestas.</p>
+                                                                <p>{{$orderItem->review->comment}}</p>
                                                             </div>
                                                         </div>
                                                     </div>
