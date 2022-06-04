@@ -35,18 +35,27 @@
 						</div>
 						<div class="detail-info">
 							<div class="product-rating">
+                                <style>
+                                    .color-gray{
+                                        color: #e6e6e6 !important;
+                                    }
+                                </style>
                                 @php
                                     $avgrating = 0;
                                 @endphp
                                 @foreach ($product->orderItems->where('rstatus',1) as $orderItem)
-
+                                    @php
+                                        $avgrating = $avgrating + $orderItem->review->rating;
+                                    @endphp
                                 @endforeach
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <a href="#" class="count-review">(05 review)</a>
+                                @for ($i = 1 ; $i <= 5 ; $i++)
+                                    @if ($i <= $avgrating)
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    @else
+                                        <i class="fa fa-star color-gray" aria-hidden="true"></i>
+                                    @endif
+                                @endfor
+                                <a href="#" class="count-review">({{ $product->orderItems->where('rstatus', 1) }} review)</a>
                             </div>
                             <h2 class="product-name">{{ $product->name }}</h2>
                             <div class="short-desc">
