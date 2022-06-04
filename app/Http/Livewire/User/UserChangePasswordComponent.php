@@ -31,6 +31,12 @@ class UserChangePasswordComponent extends Component
         if(Hash::check($this->current_password,Auth::user()->password))
         {
             $user = User::findOrFail(Auth::user()->id);
+            $user->password = Hash::make($this->password);
+            $user->save();
+            session()->flash('password_success', 'Password has been changed successfully!');
+        }
+        else{
+            session()->flash('password_error', 'Password does not match!');
         }
     }
 
