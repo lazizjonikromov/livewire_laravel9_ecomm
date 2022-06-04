@@ -180,10 +180,10 @@
                                                             </div>
                                                             <p class="meta">
                                                                 <strong
-                                                                    class="woocommerce-review__author">admin</strong>
+                                                                    class="woocommerce-review__author">{{ $orderItem->order->user->name }}</strong>
                                                                 <span class="woocommerce-review__dash">–</span>
                                                                 <time class="woocommerce-review__published-date"
-                                                                    datetime="2008-02-14 20:00">Tue, Aug 15, 2017</time>
+                                                                    datetime="2008-02-14 20:00">{{ Carbon\Carbon::parse($orderItem->review->created_at)->format('d F Y g:i A') }}</time>
                                                             </p>
                                                             <div class="description">
                                                                 <p>Pellentesque habitant morbi tristique senectus et
