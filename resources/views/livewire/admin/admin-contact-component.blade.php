@@ -1,5 +1,14 @@
 <div>
     <div class="container" style="padding: 30px 0">
+        <style>
+            nav svg{
+                height: 20px;
+            }
+
+            nav.hidden{
+                display: block !important;
+            }
+        </style>
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
@@ -34,6 +43,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        {{ $contacts->links() }}
                     </div>
                 </div>
             </div>
