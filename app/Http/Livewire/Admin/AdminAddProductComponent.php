@@ -23,6 +23,7 @@ class AdminAddProductComponent extends Component
     public $featured;
     public $quantity;
     public $image;
+    public $images;
     public $category_id;
 
     public function mount()

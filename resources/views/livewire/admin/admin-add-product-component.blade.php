@@ -143,6 +143,21 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="" class="col-md-4 control-label">Product Gallery</label>
+                                <div class="col-md-4">
+                                    <input type="file" class="input-file" wire:model="images">
+                                    @if ($images)
+                                        @foreach ($images as $image)
+                                            <img src="{{ $image->temporaryUrl() }}" alt="" width="120">
+                                        @endforeach
+                                    @endif
+                                    @error('images')
+                                        <p style="color: #ff2832;">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group">
                                 <label for="" class="col-md-4 control-label">Category</label>
                                 <div class="col-md-4">
                                     <select class="form-control" wire:model="category_id">
