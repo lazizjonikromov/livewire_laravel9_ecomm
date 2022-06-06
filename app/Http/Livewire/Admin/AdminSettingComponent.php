@@ -66,7 +66,25 @@ class AdminSettingComponent extends Component
             'instagram' => 'required',
             'youtube' => 'required'
         ]);
+
+        $setting = Setting::find(1);
+        if(!$setting)
+        {
+            $setting = new Setting();
+        }
+        $setting->email = $this->email;
+        $setting->phone = $this->phone;
+        $setting->phone2 = $this->phone2;
+        $setting->address = $this->address;
+        $setting->map = $this->map;
+        $setting->twiter = $this->twiter;
+        $setting->facebook = $this->facebook;
+        $setting->pinterest = $this->pinterest;
+        $setting->instagram = $this->instagram;
+        $setting->youtube = $this->youtube;
     }
+
+
 
     public function render()
     {
