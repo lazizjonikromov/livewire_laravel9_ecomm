@@ -8,6 +8,6 @@ class AdminContactComponent extends Component
 {
     public function render()
     {
-        return view('livewire.admin.admin-contact-component');
+        return view('livewire.admin.admin-contact-component')->layout('layouts.base');
     }
 }
