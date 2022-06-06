@@ -82,6 +82,8 @@ class AdminSettingComponent extends Component
         $setting->pinterest = $this->pinterest;
         $setting->instagram = $this->instagram;
         $setting->youtube = $this->youtube;
+        $setting->save();
+        session()->flash('message', 'Settings has been saved successfully!'); 
     }
 
 
