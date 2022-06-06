@@ -50,6 +50,11 @@
                 <div class=" main-content-area">
                     <div class="wrap-login-item ">
                         <div class="login-form form-item form-stl">
+                            @if (session('status'))
+                                <div class="mb-4 font-medium text-sm text-green-600">
+                                    {{ session('status') }}
+                                </div>
+                            @endif
                             <x-jet-validation-errors class="mb-4" />
                             <form name="frm-login" method="POST" action="{{ route('password.email') }}">
                                 @csrf
@@ -60,8 +65,7 @@
                                     <label for="frm-login-uname">Email Address:</label>
                                     <input type="email" id="frm-login-uname" name="email" placeholder="Type your email address" :value="old('email')" required autofocus>
                                 </fieldset>
-                               
-                                <input type="submit" class="btn btn-submit" value="Login" name="submit">
+                                <input type="submit" class="btn btn-submit" value="Email Password Reset Link" name="submit">
                             </form>
                         </div>
                     </div>
