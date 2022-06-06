@@ -21,6 +21,7 @@ use App\Http\Livewire\Admin\AdminSaleComponent;
 use App\Http\Livewire\CartComponent;
 use App\Http\Livewire\CategoryComponent;
 use App\Http\Livewire\CheckoutComponent;
+use App\Http\Livewire\ContactComponent;
 use App\Http\Livewire\DetailsComponent;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\SearchComponent;
@@ -66,6 +67,9 @@ Route::get('/search',SearchComponent::class)->name('product.search');
 Route::get('/wishlist',WishlistComponent::class)->name('product.wishlist');
 
 Route::get('/thank-you',ThankyouComponent::class)->name('thankyou');
+
+Route::get('/contact-us', ContactComponent::class);
+
 
 
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
