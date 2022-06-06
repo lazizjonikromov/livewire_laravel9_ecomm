@@ -36,6 +36,22 @@ class AdminSettingComponent extends Component
         }
     }
 
+    public function updated($fields)
+    {
+        $this->validateOnly($fields, [
+            'email' => 'required|email',
+            'phone' => 'required',
+            'phone2' => 'required',
+            'address' => 'required',
+            'map' => 'required',
+            'twiter' => 'required',
+            'facebook' => 'required',
+            'pinterest' => 'required',
+            'instagram' => 'required',
+            'youtube' => 'required'
+        ]);
+    }
+
     public function saveSettings()
     {
         $this->validate([
