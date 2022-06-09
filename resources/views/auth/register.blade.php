@@ -60,7 +60,14 @@
 </x-guest-layout> --}}
 
 <x-base-layout>
-    	<!--main area-->
+    <style>
+        fieldset{
+            border: none;
+        }
+        .wrap-login-item .form-item .wrap-input.left-item{
+            margin-right: 0 !important;
+        }
+    </style>
 	<main id="main" class="main-site left-sidebar">
 
 		<div class="container">
@@ -113,5 +120,4 @@
 		</div><!--end container-->
 
 	</main>
-	<!--main area-->
 </x-base-layout>

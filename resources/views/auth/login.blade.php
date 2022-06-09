@@ -48,7 +48,11 @@
 </x-guest-layout> --}}
 
 <x-base-layout>
-    	<!--main area-->
+    <style>
+        fieldset{
+            border: none;
+        }
+    </style>
 	<main id="main" class="main-site left-sidebar">
 
 		<div class="container">
@@ -96,5 +100,4 @@
 		</div><!--end container-->
 
 	</main>
-	<!--main area-->
 </x-base-layout>
