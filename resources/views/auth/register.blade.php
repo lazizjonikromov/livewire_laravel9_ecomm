@@ -59,7 +59,7 @@
     </x-jet-authentication-card>
 </x-guest-layout> --}}
 
-<x-guest-layout>
+<x-base-layout>
     	<!--main area-->
 	<main id="main" class="main-site left-sidebar">
 
@@ -72,7 +72,7 @@
 				</ul>
 			</div>
 			<div class="row">
-				<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12 col-md-offset-3">							
+				<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12 col-md-offset-3">
 					<div class=" main-content-area">
 						<div class="wrap-login-item ">
 							<div class="register-form form-item ">
@@ -82,7 +82,7 @@
 									<fieldset class="wrap-title">
 										<h3 class="form-title">Create an account</h3>
 										<h4 class="form-subtitle">Personal infomation</h4>
-									</fieldset>									
+									</fieldset>
 									<fieldset class="wrap-input">
 										<label for="frm-reg-lname">Name*</label>
 										<input type="text" id="frm-reg-lname" name="name" placeholder="Your name*" required autofocus autocomplete="name">
@@ -104,9 +104,9 @@
 									</fieldset>
 									<input type="submit" class="btn btn-sign" value="Register" name="register">
 								</form>
-							</div>											
+							</div>
 						</div>
-					</div><!--end main products area-->		
+					</div><!--end main products area-->
 				</div>
 			</div><!--end row-->
 
@@ -114,4 +114,4 @@
 
 	</main>
 	<!--main area-->
-</x-guest-layout>
+</x-base-layout>
