@@ -77,7 +77,7 @@ class AdminAddProductComponent extends Component
         $product->regular_price = $this->regular_price;
         $product->sale_price = $this->sale_price;
         $product->SKU = $this->SKU;
-        $product->stock_status = $this->stock_status;
+        $product->stock_status = $this->stock_status;      # git uchun
         $product->featured = $this->featured;
         $product->quantity = $this->quantity;
 
