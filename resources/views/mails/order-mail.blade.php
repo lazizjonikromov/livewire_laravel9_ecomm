@@ -18,9 +18,9 @@
             <th>Quantity</th>
             <th>Price</th>
         </thead>
-        
+
         <tbody>
-            @foreach ($order->$orderItems as $item)
+            @foreach ($order->orderItems as $item)
                 <tr>
                     <td><img src="{{ asset('assets/images/products') }}/{{ $item->product->image }}" width="100" alt=""></td>
                     <td>{{ $item->product->name }}</td>
@@ -30,7 +30,7 @@
             @endforeach
             <tr>
                 <td colspan="3" style="border-top:1px solid #ccc;"></td>
-                <td style="font-size:15px;font-weight:bold;">Subtotal: ${{ $order->subtotal }}</td>
+                <td style="font-size:15px;font-weight:bold;border-top:1px solid #ccc;">Subtotal: ${{ $order->subtotal }}</td>
             </tr>
             <tr>
                 <td colspan="3"></td>
