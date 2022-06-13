@@ -18,6 +18,7 @@
             <th>Quantity</th>
             <th>Price</th>
         </thead>
+        
         <tbody>
             @foreach ($order->$orderItems as $item)
                 <tr>
@@ -28,20 +29,20 @@
                 </tr>
             @endforeach
             <tr>
-                <td colspan="3"></td>
-                <td>Subtotal: ${{ $order->subtotal }}</td>
+                <td colspan="3" style="border-top:1px solid #ccc;"></td>
+                <td style="font-size:15px;font-weight:bold;">Subtotal: ${{ $order->subtotal }}</td>
             </tr>
             <tr>
                 <td colspan="3"></td>
-                <td>Tax : ${{ $order->tax }}</td>
+                <td style="font-size:15px;font-weight:bold;">Tax : ${{ $order->tax }}</td>
             </tr>
             <tr>
                 <td colspan="3"></td>
-                <td>Shipping : Free Shipping</td>
+                <td style="font-size:15px;font-weight:bold;">Shipping : Free Shipping</td>
             </tr>
             <tr>
                 <td colspan="3"></td>
-                <td>Total : ${{ $order->total }}</td>
+                <td style="font-size:15px;font-weight:bold;">Total : ${{ $order->total }}</td>
             </tr>
         </tbody>
     </table>

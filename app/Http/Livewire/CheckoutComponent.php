@@ -218,7 +218,7 @@ class CheckoutComponent extends Component
                     ],
                     'source' => $token['id']
                 ]);
- 
+
                 $charge = $stripe->charges()->create([
                     'customer' => $customer['id'],
                     'currency' => 'USD',
@@ -260,6 +260,8 @@ class CheckoutComponent extends Component
         $transaction->status = $status;
         $transaction->save();
     }
+
+    
 
     public function verifyForCheckout()
     {
