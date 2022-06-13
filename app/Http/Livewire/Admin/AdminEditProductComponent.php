@@ -99,11 +99,35 @@ class AdminEditProductComponent extends Component
         $product->featured = $this->featured;
         $product->quantity = $this->quantity;
         if ($this->newimage) {
+            unlink('assets/images/products'.'/'.$product->image);
             $imageName =
                 Carbon::now()->timestamp . '.' . $this->newimage->extension();
             $this->newimage->storeAs('products', $imageName);
             $product->image = $imageName;
         }
+
+        if($this->newimages)
+        {
+            $images = explode(",",$product->images);
+            foreach($images as $image)
+            {
+                if($image)
+                {
+                    unlink('assets/images/products'.'/'.$image);
+                }
+            }
+        }
+
+        $imagesname = '';
+        foreach($this->newimages as $key=>$image)
+        {
+            $imgName = Carbon::now()->timestamp . $key . '.' . $image->extension();
+            $image->storeAs('products', $imgName);
+            $imagesname = $imagesname . ',' . $imgName;
+        }
+
+        $product->images = $imagesname;
+
         $product->category_id = $this->category_id;
         $product->save();
         session()->flash('message', 'Product has been updated successfully!');
