@@ -27,6 +27,22 @@
                     <td>${{ $item->price * $item->quantity }}</td>
                 </tr>
             @endforeach
+            <tr>
+                <td colspan="3"></td>
+                <td>Subtotal: ${{ $order->subtotal }}</td>
+            </tr>
+            <tr>
+                <td colspan="3"></td>
+                <td>Tax : ${{ $order->tax }}</td>
+            </tr>
+            <tr>
+                <td colspan="3"></td>
+                <td>Shipping : Free Shipping</td>
+            </tr>
+            <tr>
+                <td colspan="3"></td>
+                <td>${{ $order->total }}</td>
+            </tr>
         </tbody>
     </table>
 
