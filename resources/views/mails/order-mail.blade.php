@@ -41,7 +41,7 @@
             </tr>
             <tr>
                 <td colspan="3"></td>
-                <td>${{ $order->total }}</td>
+                <td>Total : ${{ $order->total }}</td>
             </tr>
         </tbody>
     </table>
