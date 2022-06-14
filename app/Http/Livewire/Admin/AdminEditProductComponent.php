@@ -152,4 +152,6 @@ class AdminEditProductComponent extends Component
             'categories' => $categories,
         ])->layout('layouts.base');
     }
+
+    
 }

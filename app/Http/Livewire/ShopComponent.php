@@ -7,7 +7,7 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use Cart;
 use App\Models\Category;
-
+use Illuminate\Support\Facades\Auth;
 
 class ShopComponent extends Component
 {
@@ -73,6 +73,10 @@ class ShopComponent extends Component
 
         $categories = Category::all();
 
+        if(Auth::check())
+        {
+            
+        }
 
         return view('livewire.shop-component',['products'=> $products, 'categories'=>$categories])->layout("layouts.base");
     }
