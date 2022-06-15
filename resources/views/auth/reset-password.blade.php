@@ -40,6 +40,9 @@
         fieldset{
             border: none;
         }
+        .wrap-login-item .form-item .wrap-input.left-item{
+            margin-right: 0 !important;
+        }
     </style>
     <main id="main" class="main-site left-sidebar">
 
