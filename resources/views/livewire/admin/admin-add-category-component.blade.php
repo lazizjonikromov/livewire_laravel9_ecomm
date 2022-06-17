@@ -43,6 +43,15 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="" class="col-md-4 control-label">Parent Category</label>
+                                <div class="col-md-4">
+                                    <select class="form-control input-md">
+                                        <option value="">None</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
                                 <label for="" class="col-md-4 control-label"></label>
                                 <div class="col-md-4">
                                     <button type="submit" class="btn btn-primary">Submit</button>
