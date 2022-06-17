@@ -256,7 +256,7 @@
                                 <p class="summary-info grand-total"><span>Grand Total</span> <span class="grand-total-price">${{ Session::get('checkout')['total'] }}</span></p>
                             @endif
 
-                            <div>
+                            <div wire:ignore id="processing" style="font-size:22px; margin-bottom:20px;padding-left:37px;color:green;display:none;">
                                 <i class="fa fa-spinner fa-pulse fa-fw"></i>
                                 <span>Processing...</span>
                             </div>
