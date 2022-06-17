@@ -255,6 +255,12 @@
                             @if (Session::has('checkout'))
                                 <p class="summary-info grand-total"><span>Grand Total</span> <span class="grand-total-price">${{ Session::get('checkout')['total'] }}</span></p>
                             @endif
+
+                            <div>
+                                <i class="fa fa-spinner fa-pulse fa-fw"></i>
+                                <span>Processing...</span>
+                            </div>
+
                             <button type="submit" class="btn btn-medium">Place order now</button>
                         </div>
                         <div class="summary-item shipping-method">
