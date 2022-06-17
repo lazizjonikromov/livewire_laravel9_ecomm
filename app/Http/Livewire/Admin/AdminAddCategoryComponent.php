@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Category;
+use App\Models\Subcategory;
 use Livewire\Component;
 use Illuminate\Support\Str;
 
@@ -31,6 +32,22 @@ class AdminAddCategoryComponent extends Component
             'name' => 'required',
             'slug' => 'required|unique:categories'
         ]);
+
+        if($this->category_id)
+        {
+            $scategory = new Subcategory();
+            $scategory->name = $this->name;
+            $scategory->slug = $this->slug;
+            $scategory->category_id = $this->category_id;
+            $scategory->save();
+        }
+        else{
+            $category = new Category();
+            $category->name = $this->name;
+            $category->slug = $this->slug;
+            $category->save();
+        }
+
         $category = new Category();
         $category->name = $this->name;
         $category->slug = $this->slug;
