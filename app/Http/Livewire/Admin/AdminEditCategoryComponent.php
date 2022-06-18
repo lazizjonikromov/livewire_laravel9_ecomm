@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Category;
+use App\Models\Subcategory;
 use Livewire\Component;
 use Illuminate\Support\Str;
 
@@ -15,13 +16,26 @@ class AdminEditCategoryComponent extends Component
     public $scategory_id;
     public $scategory_slug;
 
-    public function mount($category_slug)
+    public function mount($category_slug, $scategory_slug=null)
     {
-        $this->category_slug = $category_slug;
-        $category = Category::where('slug', $category_slug)->first();
-        $this->category_id = $category->id;
-        $this->name = $category->name;
-        $this->slug = $category->slug;
+        if($scategory_slug)
+        {
+            $this->scategory_slug = $scategory_slug;
+            $scategory = Subcategory::where('slug', $scategory_slug)->first();
+            $this->scategory_id = $scategory->id;
+            $this->category_id = $scategory->category_id;
+            $this->name = $scategory->name;
+            $this->slug = $scategory->slug;
+        }
+        else
+        {
+            $this->category_slug = $category_slug;
+            $category = Category::where('slug', $category_slug)->first();
+            $this->category_id = $category->id;
+            $this->name = $category->name;
+            $this->slug = $category->slug;
+        }
+
     }
 
     public function generateslug()
