@@ -6,6 +6,9 @@
         nav .hidden{
             display: block !important;
         }
+        .sclist{
+            list-style: none;
+        }
     </style>
     <div class="container" style="padding: 30px 0">
         <div class="row">
