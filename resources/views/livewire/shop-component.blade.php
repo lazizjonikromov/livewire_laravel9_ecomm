@@ -166,11 +166,11 @@
                                 <li class="category-item {{count($category->subCategories) > 0 ? 'has-child-cate': '' }}">
                                     <a href="{{ route('product.category', ['category_slug' => $category->slug]) }}" class="cate-link">{{ $category->name }}</a>
                                     @if (count($category->subCategories)>0)
-                                        <span class="toogle-control">+</span>
+                                        <span class="toggle-control">+</span>
                                         <ul class="sub-cate">
                                             @foreach ($category->subCategories as $scategory)
                                                 <li class="category-item">
-                                                    <a href="#" class="cat-link">
+                                                    <a href="#" class="cate-link">
                                                         <i class="fa fa-caret-right"></i> {{ $scategory->name }}
                                                     </a>
                                                 </li>
@@ -264,7 +264,7 @@
                                     <div class="thumbnnail">
                                         <a href="detail.html"
                                             title="Radiant-360 R6 Wireless Omnidirectional Speaker [White]">
-                                            <figure><img src="{{ asset('assets/images/products/digital_01.jpg') }}"
+                                            <figure><img src="{{ asset('assets/images/products/digital_1.jpg') }}"
                                                     alt=""></figure>
                                         </a>
                                     </div>
