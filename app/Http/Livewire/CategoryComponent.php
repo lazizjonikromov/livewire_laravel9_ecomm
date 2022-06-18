@@ -43,26 +43,28 @@ class CategoryComponent extends Component
             $category_id = $scategory->id;
             $category_name = $scategory->name;
             $filter = "sub";
-
         }
-        $category = Category::where('slug', $this->category_slug)->first();
-        $category_id = $category->id;
-        $category_name = $category->name;
+        else{
+            $category = Category::where('slug', $this->category_slug)->first();
+            $category_id = $category->id;
+            $category_name = $category->name;
+            $filter= "";
+        }
 
         if($this->sorting == 'date')
         {
-            $products = Product::where('category_id',$category_id)->orderBy('created_at','DESC')->paginate($this->pagesize);
+            $products = Product::where($filter.'category_id',$category_id)->orderBy('created_at','DESC')->paginate($this->pagesize);
         }
         else if($this->sorting == 'price')
         {
-            $products = Product::where('category_id',$category_id)->orderBy('regular_price','ASC')->paginate($this->pagesize);
+            $products = Product::where($filter.'category_id',$category_id)->orderBy('regular_price','ASC')->paginate($this->pagesize);
         }
         else if($this->sorting == 'price-desc')
         {
-            $products = Product::where('category_id',$category_id)->orderBy('regular_price','DESC')->paginate($this->pagesize);
+            $products = Product::where($filter.'category_id',$category_id)->orderBy('regular_price','DESC')->paginate($this->pagesize);
         }
         else{
-            $products = Product::where('category_id',$category_id)->paginate($this->pagesize);
+            $products = Product::where($filter.'category_id',$category_id)->paginate($this->pagesize);
         }
 
         $categories = Category::all();
