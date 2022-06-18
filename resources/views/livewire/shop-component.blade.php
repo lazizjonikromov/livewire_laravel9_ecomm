@@ -167,6 +167,15 @@
                                     <a href="{{ route('product.category', ['category_slug' => $category->slug]) }}" class="cate-link">{{ $category->name }}</a>
                                     @if (count($category->subCategories)>0)
                                         <span class="toogle-control">+</span>
+                                        <ul class="sub-cate">
+                                            @foreach ($category->subCategories as $scategory)
+                                                <li class="category-item">
+                                                    <a href="#" class="cat-link">
+                                                        <i class="fa fa-caret-right"></i> {{ $scategory->name }}
+                                                    </a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
                                     @endif
                                 </li>
                             @endforeach
