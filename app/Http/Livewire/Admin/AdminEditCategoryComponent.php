@@ -12,6 +12,8 @@ class AdminEditCategoryComponent extends Component
     public $category_id;
     public $name;
     public $slug;
+    public $scategory_id;
+    public $scategory_slug;
 
     public function mount($category_slug)
     {
