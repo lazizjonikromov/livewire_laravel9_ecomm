@@ -100,6 +100,10 @@ class AdminAddProductComponent extends Component
         }
 
         $product->category_id = $this->category_id;
+        if($this->scategory_id)
+        {
+            $product->subcategory_id = $this->scategory_id;
+        }
         $product->save();
         session()->flash('message', 'Product has been created successfully!');
     }
