@@ -124,27 +124,35 @@ class AdminEditProductComponent extends Component
 
         if($this->newimages)
         {
-            $images = explode(",",$product->images);
-            foreach($images as $image)
+            if($product->images)
             {
-                if($image)
+                $images = explode(",",$product->images);
+                foreach($images as $image)
                 {
-                    unlink('assets/images/products'.'/'.$image);
+                    if($image)
+                    {
+                        unlink('assets/images/products'.'/'.$image);
+                    }
                 }
             }
-        }
 
-        $imagesname = '';
-        foreach($this->newimages as $key=>$image)
-        {
-            $imgName = Carbon::now()->timestamp . $key . '.' . $image->extension();
-            $image->storeAs('products', $imgName);
-            $imagesname = $imagesname . ',' . $imgName;
-        }
+            $imagesname = '';
+            foreach($this->newimages as $key=>$image)
+            {
+                $imgName = Carbon::now()->timestamp . $key . '.' . $image->extension();
+                $image->storeAs('products', $imgName);
+                $imagesname = $imagesname . ',' . $imgName;
+            }
 
-        $product->images = $imagesname;
+            $product->images = $imagesname;
+
+        }
 
         $product->category_id = $this->category_id;
+        if($this->scategory_id)
+        {
+            $product->subcategory_id = $this->scategory_id;
+        }
         $product->save();
         session()->flash('message', 'Product has been updated successfully!');
     }
