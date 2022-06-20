@@ -104,10 +104,15 @@ class AdminAddProductComponent extends Component
         session()->flash('message', 'Product has been created successfully!');
     }
 
+    public function changeSubcategory()
+    {
+        $this->scategory_id = 0;
+    }
+
     public function render()
     {
         $categories = Category::all();
         $scategories = Subcategory::where('category_id', $this->category_id)->get();
-        return view('livewire.admin.admin-add-product-component', ['categories'=>$categories])->layout('layouts.base');
+        return view('livewire.admin.admin-add-product-component', ['categories'=>$categories, 'scategories'=>$scategories])->layout('layouts.base');
     }
 }
