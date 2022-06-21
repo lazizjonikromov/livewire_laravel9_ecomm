@@ -91,10 +91,10 @@
                 <div class="row">
                   <div class="col-xs-8 text-left">
                     <span class="icon-stat-label">Today Delivered</span>
-                    <span class="icon-stat-value">${{ $todayDelivered }}</span>
+                    <span class="icon-stat-value">{{ $totalDelivered }}</span>
                   </div>
                   <div class="col-xs-4 text-center">
-                    <i class="fa fa-dollar icon-stat-visual bg-primary"></i>
+                    <i class="fa fa-gift icon-stat-visual bg-secondary"></i>
                   </div>
                 </div>
                 <div class="icon-stat-footer">
@@ -107,7 +107,7 @@
                 <div class="row">
                   <div class="col-xs-8 text-left">
                     <span class="icon-stat-label">Today Canceled</span>
-                    <span class="icon-stat-value">{{ $todayCanceled }}</span>
+                    <span class="icon-stat-value">{{ $totalCanceled }}</span>
                   </div>
                   <div class="col-xs-4 text-center">
                     <i class="fa fa-gift icon-stat-visual bg-secondary"></i>
@@ -145,9 +145,12 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @php
+                                    $i = 1;
+                                @endphp
                                 @foreach ($orders as $order)
                                     <tr>
-                                        <td>{{ $order->id }}</td>
+                                        <td>{{ $i++ }}</td>
                                         <td>${{ $order->subtotal }}</td>
                                         <td>${{ $order->discount }}</td>
                                         <td>${{ $order->tax }}</td>
