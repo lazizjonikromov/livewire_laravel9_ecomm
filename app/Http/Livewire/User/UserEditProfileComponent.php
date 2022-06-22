@@ -16,6 +16,7 @@ class UserEditProfileComponent extends Component
     public $province;
     public $country;
     public $zipcode;
+    public $newimage;
 
     public function render()
     {

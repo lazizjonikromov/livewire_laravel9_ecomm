@@ -8,24 +8,27 @@
                 <div class="panel-body">
                     <form>
                         <div class="col-md-4">
-                            @if ($user->profile->image)
+                            @if ($newimage)
+                                <img src="{{ $newimage->temporaryUrl() }}" alt="" width="100%">
+                            @elseif ($image)
                                 <img src="{{ asset('assets/images/profile') }}/{{ $user->profile->image }}" alt="" width="100%">
                             @else
                                 <img src="{{ asset('assets/images/profile/default.jpg') }}" alt="" width="100%">
                             @endif
-                            <input type="file" class="form-control">
+                            <input type="file" class="form-control" wire:model="newimage">
                         </div>
                         <div class="col-md-8">
-                            <p><b>Name: </b><input type="text" class="form-control"></p>
-                            <p><b>Email: </b>{{ $user->email }}</p>
-                            <p><b>Phone: </b><input type="text" class="form-control"></p>
+                            <p><b>Name: </b><input type="text" class="form-control" wire:model="name"></p>
+                            <p><b>Email: </b>{{ $email }}</p>
+                            <p><b>Phone: </b><input type="text" class="form-control" wire:model="mobile"></p>
                             <hr>
-                            <p><b>Line1: </b><input type="text" class="form-control"></p>
-                            <p><b>Line2: </b><input type="text" class="form-control"></p>
-                            <p><b>City: </b><input type="text" class="form-control"></p>
-                            <p><b>Province: </b><input type="text" class="form-control"></p>
-                            <p><b>Country: </b><input type="text" class="form-control"></p>
-                            <p><b>Zip Code: </b><input type="text" class="form-control"></p>
+                            <p><b>Line1: </b><input type="text" class="form-control" wire:model="line1"></p>
+                            <p><b>Line2: </b><input type="text" class="form-control" wire:model="line2"></p>
+                            <p><b>City: </b><input type="text" class="form-control" wire:model="city"></p>
+                            <p><b>Province: </b><input type="text" class="form-control" wire:model="province"></p>
+                            <p><b>Country: </b><input type="text" class="form-control" wire:model="country"></p>
+                            <p><b>Zip Code: </b><input type="text" class="form-control"  wire:model="zipcode"></p>
+                            <button type="submit" class="btn btn-info pull-right">Update</button>
                         </div>
                     </form>
                 </div>
