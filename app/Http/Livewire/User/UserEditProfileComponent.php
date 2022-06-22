@@ -35,6 +35,22 @@ class UserEditProfileComponent extends Component
         $this->zipcode = $user->profile->zipcode;
     }
 
+    public function updateProfile()
+    {
+        $user = User::find(Auth::user()->id);
+        $user->name = $this->name;
+        $user->save();
+
+        $user->profile->mobile = $this->mobile;
+        $user->profile->line1 = $this->line1;
+        $user->profile->line2 = $this->line2;
+        $user->profile->city = $this->city;
+        $user->profile->province = $this->province;
+        $user->profile->country = $this->country;
+        $user->profile->zipcode = $this->zipcode;
+
+    }
+
     public function render()
     {
         return view('livewire.user.user-edit-profile-component')->layout('layouts.base');
