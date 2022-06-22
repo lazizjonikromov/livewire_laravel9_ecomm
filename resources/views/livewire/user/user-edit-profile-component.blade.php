@@ -6,14 +6,21 @@
                     Update Profile
                 </div>
                 <div class="panel-body">
-                    <form>
+                    @if (Session::has('message'))
+                        <div class="alert alert-success" role="alert">
+                            {{ Session::get('message') }}
+                        </div>
+                    @endif
+                    <form wire:submit.prevent="updateProfile">
                         <div class="col-md-4">
                             @if ($newimage)
                                 <img src="{{ $newimage->temporaryUrl() }}" alt="" width="100%">
                             @elseif ($image)
-                                <img src="{{ asset('assets/images/profile') }}/{{ $user->profile->image }}" alt="" width="100%">
+                                <img src="{{ asset('assets/images/profile') }}/{{ $user->profile->image }}"
+                                    alt="" width="100%">
                             @else
-                                <img src="{{ asset('assets/images/profile/default.jpg') }}" alt="" width="100%">
+                                <img src="{{ asset('assets/images/profile/default.jpg') }}" alt=""
+                                    width="100%">
                             @endif
                             <input type="file" class="form-control" wire:model="newimage">
                         </div>
@@ -27,7 +34,7 @@
                             <p><b>City: </b><input type="text" class="form-control" wire:model="city"></p>
                             <p><b>Province: </b><input type="text" class="form-control" wire:model="province"></p>
                             <p><b>Country: </b><input type="text" class="form-control" wire:model="country"></p>
-                            <p><b>Zip Code: </b><input type="text" class="form-control"  wire:model="zipcode"></p>
+                            <p><b>Zip Code: </b><input type="text" class="form-control" wire:model="zipcode"></p>
                             <button type="submit" class="btn btn-info pull-right">Update</button>
                         </div>
                     </form>
