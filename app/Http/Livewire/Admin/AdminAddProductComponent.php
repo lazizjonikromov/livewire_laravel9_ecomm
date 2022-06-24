@@ -134,7 +134,7 @@ class AdminAddProductComponent extends Component
             foreach($avalues as $avalue)
             {
                 $attr_value = new AttributeValue();
-                $attr_value->attribute_id = $key;
+                $attr_value->product_attribute_id = $key;
                 $attr_value->value = $avalue;
                 $attr_value->product_id = $product->id;
                 $attr_value->save();
