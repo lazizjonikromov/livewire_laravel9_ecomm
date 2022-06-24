@@ -16,7 +16,7 @@
                             @if ($newimage)
                                 <img src="{{ $newimage->temporaryUrl() }}" alt="" width="100%">
                             @elseif ($image)
-                                <img src="{{ asset('assets/images/profile') }}/{{ $user->profile->image }}"
+                                <img src="{{ asset('assets/images/profile') }}/{{ $image }}"
                                     alt="" width="100%">
                             @else
                                 <img src="{{ asset('assets/images/profile/default.jpg') }}" alt=""
