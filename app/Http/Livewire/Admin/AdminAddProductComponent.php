@@ -2,10 +2,12 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Models\AttributeValue;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductAttribute;
 use App\Models\Subcategory;
+use Attribute;
 use Carbon\Carbon;
 use Livewire\Component;
 use Illuminate\Support\Str;
@@ -47,6 +49,11 @@ class AdminAddProductComponent extends Component
             array_push($this->inputs,$this->attr);
             array_push($this->attribute_arr,$this->attr);
         }
+    }
+
+    public function remove($attr)
+    {
+        unset($this->inputs[$attr]);
     }
 
     public function generateSlug()
@@ -120,6 +127,20 @@ class AdminAddProductComponent extends Component
             $product->subcategory_id = $this->scategory_id;
         }
         $product->save();
+
+        foreach($this->attribute_values as $key=>$attribute_value)
+        {
+            $avalues = explode(",", $attribute_value);
+            foreach($avalues as $avalue)
+            {
+                $attr_value = new AttributeValue();
+                $attr_value->attribute_id = $key;
+                $attr_value->value = $avalue;
+                $attr_value->product_id = $product->id;
+                $attr_value->save();
+            }
+        }
+
         session()->flash('message', 'Product has been created successfully!');
     }
 
