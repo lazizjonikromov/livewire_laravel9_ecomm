@@ -40,6 +40,15 @@ class AdminAddProductComponent extends Component
         $this->featured = 0;
     }
 
+    public function add()
+    {
+        if(!in_array($this->attr, $this->attribute_arr))
+        {
+            array_push($this->inputs,$this->attr);
+            array_push($this->attribute_arr,$this->attr);
+        }
+    }
+
     public function generateSlug()
     {
         $this->slug = Str::slug($this->name,'-');
