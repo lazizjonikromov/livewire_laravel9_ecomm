@@ -15,7 +15,12 @@ return new class extends Migration
     {
         Schema::create('attribute_values', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('product_attribute_id')->unsigned()->nullable();
+            $table->string('value');
+            $table->bigInteger('product_id')->unsigned()->nullable();
             $table->timestamps();
+            $table->foreign('product_attribute_id')->references('id')->on('product_attributes')->onDelete('cascade');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
         });
     }
 

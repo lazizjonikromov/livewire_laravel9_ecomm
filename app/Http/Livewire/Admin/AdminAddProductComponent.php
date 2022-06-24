@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\ProductAttribute;
 use App\Models\Subcategory;
 use Carbon\Carbon;
 use Livewire\Component;
@@ -117,6 +118,8 @@ class AdminAddProductComponent extends Component
     {
         $categories = Category::all();
         $scategories = Subcategory::where('category_id', $this->category_id)->get();
-        return view('livewire.admin.admin-add-product-component', ['categories'=>$categories, 'scategories'=>$scategories])->layout('layouts.base');
+
+        $pattributes = ProductAttribute::all();
+        return view('livewire.admin.admin-add-product-component', ['categories'=>$categories, 'scategories'=>$scategories, 'pattributes'=>$pattributes])->layout('layouts.base');
     }
 }
