@@ -8,6 +8,6 @@ class AdminAddAttributeComponent extends Component
 {
     public function render()
     {
-        return view('livewire.admin.admin-add-attribute-component');
+        return view('livewire.admin.admin-add-attribute-component')->layout('layotus.base');
     }
 }

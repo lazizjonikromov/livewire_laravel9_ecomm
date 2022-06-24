@@ -8,6 +8,6 @@ class AdminEditAttributeComponent extends Component
 {
     public function render()
     {
-        return view('livewire.admin.admin-edit-attribute-component');
+        return view('livewire.admin.admin-edit-attribute-component')->layout('layotus.base');
     }
 }
