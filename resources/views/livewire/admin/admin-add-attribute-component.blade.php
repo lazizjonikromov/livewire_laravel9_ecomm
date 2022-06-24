@@ -21,7 +21,7 @@
                                 {{Session::get('message')}}
                             </div>
                         @endif
-                        <form class="form-horizontal" wire:submit.prevent="storeCategory">
+                        <form class="form-horizontal" wire:submit.prevent="storeAttribute">
                             <div class="form-group">
                                 <label for="" class="col-md-4 control-label">Attribute Name</label>
                                 <div class="col-md-4">

@@ -54,7 +54,7 @@
                                         <td>{{$pattribute->name}}</td>
                                         <td>{{$pattribute->created_at}}</td>
                                         <td>
-                                            <a href="{{route('admin.edit_pattribute',['attribute_id'=>$pattribute->id])}}">
+                                            <a href="{{route('admin.edit_attribute',['attribute_id'=>$pattribute->id])}}">
                                                 <i class="fa fa-edit fa-2x"></i>
                                             </a>
                                             <a href="#" onclick="confirm('Are you sure, You want to delete this category?') || event.stopImmediatePropagation()" style="margin-left: 10px">
