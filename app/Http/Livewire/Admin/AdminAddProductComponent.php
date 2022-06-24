@@ -29,6 +29,11 @@ class AdminAddProductComponent extends Component
     public $category_id;
     public $scategory_id;
 
+    public $attr;
+    public $inputs = [];
+    public $attribute_arr = [];
+    public $attribute_values;
+
     public function mount()
     {
         $this->stock_status = 'instock';

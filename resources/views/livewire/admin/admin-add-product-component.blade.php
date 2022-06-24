@@ -188,6 +188,21 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="" class="col-md-4 control-label">Product Attributes</label>
+                                <div class="col-md-4">
+                                    <select class="form-control" wire:model="attr">
+                                        <option value="0">Select Attribute</option>
+                                        @foreach ($pattributes as $pattribute)
+                                            <option value="{{ $pattribute->id }}">{{ $pattribute->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" class="btn btn-info">Add</button>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
                                 <label for="" class="col-md-4 control-label"></label>
                                 <div class="col-md-4">
                                     <button type="submit" class="btn btn-primary">Submit</button>
