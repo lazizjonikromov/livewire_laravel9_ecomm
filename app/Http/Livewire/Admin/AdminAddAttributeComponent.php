@@ -25,7 +25,7 @@ class AdminAddAttributeComponent extends Component
         $pattribute = new ProductAttribute();
         $pattribute->name = $this->name;
         $pattribute->save();
-        session()->flash('message' , 'Attribute has been created successfuly!');
+        session()->flash('message' , 'Attribute has been created successfully!');
 
     }
 
