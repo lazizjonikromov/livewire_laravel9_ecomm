@@ -36,7 +36,13 @@
                                             </div>
                                         @endforeach
 
-                                        <div class="price-field produtc-price"><p class="price">${{ $item->model->regular_price }}</p></div>
+                                        {{-- @if ($product->sale_price > 0 && $sale->status == 1 && $sale->sale_date > Carbon\Carbon::now())
+
+                                        @elseif ()
+
+                                        @else --}}
+                                            <div class="price-field produtc-price"><p class="price">${{ $item->model->regular_price }}</p></div>
+                                        {{-- @endif --}}
                                         <div class="quantity">
                                             <div class="quantity-input">
                                                 <input type="text" name="product-quatity" value="{{ $item->qty }}" data-max="120" pattern="[0-9]*" >
