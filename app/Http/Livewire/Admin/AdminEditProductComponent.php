@@ -30,8 +30,12 @@ class AdminEditProductComponent extends Component
 
     public $images;
     public $newimages;
-
     public $scategory_id;
+
+    public $attr;
+    public $inputs = [];
+    public $attribute_arr = [];
+    public $attribute_values = [];
 
     public function mount($product_slug)
     {
