@@ -93,7 +93,25 @@
                         <div class="stock-info in-stock">
                             <p class="availability">Availability: <b>{{ $product->stock_status }}</b></p>
                         </div>
-                        <div class="quantity">
+
+                        <div>
+                            @foreach ($product->attributeValues->unique('product_attribute_id') as $av)
+                                <div class="row" style="margin-top: 20px">
+                                    <div class="col-xs-2">
+                                        <p>{{ $av->productAttribute->name }}</p>
+                                    </div>
+                                    <div class="col-xs-10">
+                                        <select class="form-control" style="width: 200px;">
+                                            @foreach ($av->productAttribute->attributeValues->where('product_id', $product->id) as $pav)
+                                                <option value="{{ $pav->id }}">{{ $pav->value }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+
+                        <div class="quantity" style="margin-top: 10px;">
                             <span>Quantity:</span>
                             <div class="quantity-input">
                                 <input type="text" name="product-quatity" value="1" data-max="120" pattern="[0-9]*"
@@ -183,7 +201,7 @@
                                                         <img alt="{{ $orderItem->order->user->name }}"
                                                             src="{{ asset('assets/images/profile') }}/{{ $orderItem->order->user->profile->image }}"
                                                             height="80" width="80">
-                                                            
+
                                                         <div class="comment-text">
                                                             <div class="star-rating">
                                                                 <span class="width-{{ $orderItem->review->rating * 20 }}-percent">Rated <strong
