@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Admin;
 use App\Models\AttributeValue;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\ProductAttribute;
 use App\Models\Subcategory;
 use Attribute;
 use Carbon\Carbon;
@@ -76,6 +77,20 @@ class AdminEditProductComponent extends Component
     public function generateSlug()
     {
         $this->slug = Str::slug($this->name, '-');
+    }
+
+    public function add()
+    {
+        if(!$this->attribute_arr->contains($this->attr))
+        {
+            $this->inputs->push($this->attr);
+            $this->attribute_arr->push($this->attr);
+        }
+    }
+
+    public function remove($attr)
+    {
+        unset($this->inputs[$attr]);
     }
 
     public function updated($fields)
@@ -173,6 +188,21 @@ class AdminEditProductComponent extends Component
             $product->subcategory_id = $this->scategory_id;
         }
         $product->save();
+
+        AttributeValue::where('product_id', $product->id)->delete();
+        foreach($this->attribute_values as $key=>$attribute_value)
+        {
+            $avalues = explode(",", $attribute_value);
+            foreach($avalues as $avalue)
+            {
+                $attr_value = new AttributeValue();
+                $attr_value->product_attribute_id = $key;
+                $attr_value->value = $avalue;
+                $attr_value->product_id = $product->id;
+                $attr_value->save();
+            }
+        }
+
         session()->flash('message', 'Product has been updated successfully!');
     }
 
@@ -185,7 +215,8 @@ class AdminEditProductComponent extends Component
     {
         $categories = Category::all();
         $scategories = Subcategory::where('category_id', $this->category_id)->get();
-        return view('livewire.admin.admin-edit-product-component', ['categories' => $categories, 'scategories'=>$scategories])->layout('layouts.base');
+        $pattributes = ProductAttribute::all();
+        return view('livewire.admin.admin-edit-product-component', ['categories' => $categories, 'scategories'=>$scategories, 'pattributes'=>$pattributes])->layout('layouts.base');
     }
 
 
