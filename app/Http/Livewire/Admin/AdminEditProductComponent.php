@@ -2,9 +2,11 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Models\AttributeValue;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Subcategory;
+use Attribute;
 use Carbon\Carbon;
 use Livewire\Component;
 use Illuminate\Support\Str;
@@ -56,6 +58,19 @@ class AdminEditProductComponent extends Component
         $this->category_id = $product->category_id;
         $this->scategory_id = $product->subcategory_id;
         $this->product_id = $product->id;
+        $this->inputs = $product->attributeValues->where('product_id', $product->id)->unique('product_attribute_id')->pluck('product_attribute_id');
+        $this->attribute_arr = $product->attributeValues->where('product_id', $product->id)->unique('product_attribute_id')->pluck('product_attribute_id');
+
+        foreach($this->attribute_arr as $a_arr)
+        {
+            $allAttributeValue = AttributeValue::where('product_id', $product->id)->where('product_attribute_id', $a_arr)->get()->pluck('value');
+            $valueString = '';
+            foreach($allAttributeValue as $value)
+            {
+                $valueString = $valueString . $value . ',';
+            }
+            $this->attribute_values[$a_arr] = rtrim($valueString, ",");
+        }
     }
 
     public function generateSlug()
