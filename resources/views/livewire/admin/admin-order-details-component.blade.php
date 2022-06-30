@@ -44,6 +44,9 @@
                             </div>
                         </div>
                     </div>
+
+                    {{-- dsadsadasdasdsadasd --}}
+
                     <div class="panel-body">
                         <div class="wrap-iten-in-cart">
 
