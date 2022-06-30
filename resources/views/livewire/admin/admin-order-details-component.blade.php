@@ -45,8 +45,6 @@
                         </div>
                     </div>
 
-                    
-
                     <div class="panel-body">
                         <div class="wrap-iten-in-cart">
 
