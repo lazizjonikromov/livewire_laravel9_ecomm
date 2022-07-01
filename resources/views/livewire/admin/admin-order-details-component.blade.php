@@ -69,7 +69,7 @@
                                             </div>
                                         @endif
                                         <div class="price-field produtc-price">
-                                            <p class="price">${{ $item->price }}</p>
+                                            <p class="price">${{ $item->price }}</p>  
                                         </div>
                                         <div class="quantity">
                                             <h5>{{ $item->quantity }}</h5>
