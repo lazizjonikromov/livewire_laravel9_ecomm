@@ -8,7 +8,6 @@
             text-decoration: line-through;
             padding-left: 10px;
         }
-
     </style>
 
     <div class="container">
@@ -32,7 +31,7 @@
                                         alt="{{ $product->name }}" />
                                 </li>
                                 @php
-                                    $images = explode(",",$product->images);
+                                    $images = explode(',', $product->images);
                                 @endphp
                                 @foreach ($images as $image)
                                     @if ($image)
@@ -52,7 +51,6 @@
                                 .color-gray {
                                     color: #e6e6e6 !important;
                                 }
-
                             </style>
                             @php
                                 $avgrating = 0;
@@ -78,8 +76,8 @@
                             {!! $product->short_description !!}
                         </div>
                         <div class="wrap-social">
-                            <a class="link-socail" href="#"><img src="{{ asset('assets/images/social-list.png') }}"
-                                    alt=""></a>
+                            <a class="link-socail" href="#"><img
+                                    src="{{ asset('assets/images/social-list.png') }}" alt=""></a>
                         </div>
                         @if ($product->sale_price > 0 && $sale->status == 1 && $sale->sale_date > Carbon\Carbon::now())
                             <div class="wrap-price">
@@ -87,8 +85,8 @@
                                 <del><span class="product-price regprice">${{ $product->regular_price }}</span></del>
                             </div>
                         @else
-                            <div class="wrap-price"><span
-                                    class="product-price">${{ $product->regular_price }}</span></div>
+                            <div class="wrap-price"><span class="product-price">${{ $product->regular_price }}</span>
+                            </div>
                         @endif
                         <div class="stock-info in-stock">
                             <p class="availability">Availability: <b>{{ $product->stock_status }}</b></p>
@@ -101,7 +99,8 @@
                                         <p>{{ $av->productAttribute->name }}</p>
                                     </div>
                                     <div class="col-xs-10">
-                                        <select class="form-control" style="width: 200px;" wire:model="satt.{{ $av->productAttribute->name }}">
+                                        <select class="form-control" style="width: 200px;"
+                                            wire:model="satt.{{ $av->productAttribute->name }}">
                                             @foreach ($av->productAttribute->attributeValues->where('product_id', $product->id) as $pav)
                                                 <option value="{{ $pav->value }}">{{ $pav->value }}</option>
                                             @endforeach
@@ -114,8 +113,8 @@
                         <div class="quantity" style="margin-top: 10px;">
                             <span>Quantity:</span>
                             <div class="quantity-input">
-                                <input type="text" name="product-quatity" value="1" data-max="120" pattern="[0-9]*"
-                                    wire:model="qty">
+                                <input type="text" name="product-quatity" value="1" data-max="120"
+                                    pattern="[0-9]*" wire:model="qty">
 
                                 <a class="btn btn-reduce" href="#" wire:click.prevent="decreaseQuantity"></a>
                                 <a class="btn btn-increase" href="#" wire:click.prevent="increaseQuantity"></a>
@@ -150,20 +149,17 @@
                             <div class="tab-content-item " id="add_infomation">
                                 <table class="shop_attributes">
                                     <tbody>
-                                        <tr>
-                                            <th>Weight</th>
-                                            <td class="product_weight">1 kg</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Dimensions</th>
-                                            <td class="product_dimensions">12 x 15 x 23 cm</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Color</th>
-                                            <td>
-                                                <p>Black, Blue, Grey, Violet, Yellow</p>
-                                            </td>
-                                        </tr>
+                                        @foreach ($product->attributeValues->unique('product_attribute_id') as $av)
+                                            <tr>
+                                                <th>{{ $av->productAttribute->name }}</th>
+                                                <td class="product_dimensions">
+                                                    @foreach ($av->productAttribute->attributeValues->where('product_id', $product->id) as $pav)
+                                                        {{ $pav->value . ';' }}
+                                                    @endforeach
+                                                </td>
+                                            </tr>
+                                        @endforeach
+
                                     </tbody>
                                 </table>
                             </div>
@@ -171,28 +167,35 @@
 
                                 <div class="wrap-review-form">
                                     <style>
-                                        .width-0-percent{
+                                        .width-0-percent {
                                             width: 0%;
                                         }
-                                        .width-20-percent{
+
+                                        .width-20-percent {
                                             width: 20%;
                                         }
-                                        .width-40-percent{
+
+                                        .width-40-percent {
                                             width: 40%;
                                         }
-                                        .width-60-percent{
+
+                                        .width-60-percent {
                                             width: 60%;
                                         }
-                                        .width-80-percent{
+
+                                        .width-80-percent {
                                             width: 80%;
                                         }
-                                        .width-100-percent{
+
+                                        .width-100-percent {
                                             width: 100%;
                                         }
                                     </style>
 
                                     <div id="comments">
-                                        <h2 class="woocommerce-Reviews-title">{{ $product->orderItems->where('rstatus', 1)->count() }} review for <span>{{$product->name}}</span></h2>
+                                        <h2 class="woocommerce-Reviews-title">
+                                            {{ $product->orderItems->where('rstatus', 1)->count() }} review for
+                                            <span>{{ $product->name }}</span></h2>
                                         <ol class="commentlist">
                                             @foreach ($product->orderItems->where('rstatus', 1) as $orderItem)
                                                 <li class="comment byuser comment-author-admin bypostauthor even thread-even depth-1"
@@ -204,8 +207,11 @@
 
                                                         <div class="comment-text">
                                                             <div class="star-rating">
-                                                                <span class="width-{{ $orderItem->review->rating * 20 }}-percent">Rated <strong
-                                                                        class="rating">{{ $orderItem->review->rating }}</strong> out of
+                                                                <span
+                                                                    class="width-{{ $orderItem->review->rating * 20 }}-percent">Rated
+                                                                    <strong
+                                                                        class="rating">{{ $orderItem->review->rating }}</strong>
+                                                                    out of
                                                                     5</span>
                                                             </div>
                                                             <p class="meta">
@@ -216,7 +222,7 @@
                                                                     datetime="2008-02-14 20:00">{{ Carbon\Carbon::parse($orderItem->review->created_at)->format('d F Y g:i A') }}</time>
                                                             </p>
                                                             <div class="description">
-                                                                <p>{{$orderItem->review->comment}}</p>
+                                                                <p>{{ $orderItem->review->comment }}</p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -325,7 +331,8 @@
                                             title="{{ $r_product->name }}">
                                             <figure><img
                                                     src="{{ asset('assets/images/products') }}/{{ $r_product->image }}"
-                                                    width="214" height="214" alt="{{ $r_product->name }}"></figure>
+                                                    width="214" height="214" alt="{{ $r_product->name }}">
+                                            </figure>
                                         </a>
                                         <div class="group-flash">
                                             <span class="flash-item new-label">new</span>

@@ -17,6 +17,8 @@ class ShopComponent extends Component
     public $min_price;
     public $max_price;
 
+    
+
     public function mount()
     {
         $this->sorting = "default";
