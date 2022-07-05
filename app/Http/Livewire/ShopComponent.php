@@ -17,7 +17,8 @@ class ShopComponent extends Component
     public $min_price;
     public $max_price;
 
-    
+    public $shop_page_attribute;
+
 
     public function mount()
     {
@@ -80,6 +81,7 @@ class ShopComponent extends Component
             Cart::instance('cart')->store(Auth::user()->email);
             Cart::instance('wishlist')->store(Auth::user()->email);
         }
+
 
         return view('livewire.shop-component',['products'=> $products, 'categories'=>$categories])->layout("layouts.base");
     }

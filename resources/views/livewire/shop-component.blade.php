@@ -76,7 +76,7 @@
                         animation: scales 1s linear infinite;
                     }
 
-                    .fill-heart{
+                    .fill-heart {
                         color: #ff2832 !important;
                     }
 
@@ -97,14 +97,15 @@
                             transform: scale(1.1);
                         }
                     }
-
                 </style>
 
                 <div class="row">
 
                     <ul class="product-list grid-products equal-container">
                         @php
-                            $witems = Cart::instance('wishlist')->content()->pluck('id');
+                            $witems = Cart::instance('wishlist')
+                                ->content()
+                                ->pluck('id');
                         @endphp
                         @foreach ($products as $product)
                             <li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 ">
@@ -122,16 +123,19 @@
                                             class="product-name"><span>{{ $product->name }}</span></a>
                                         <div class="wrap-price"><span
                                                 class="product-price">${{ $product->regular_price }}</span></div>
+
                                         <a href="#" class="btn add-to-cart"
                                             wire:click.prevent="store({{ $product->id }} , '{{ $product->name }}' ,{{ $product->regular_price }})">Add
                                             To Cart</a>
                                         <div class="product-wish">
-                                            @if($witems->contains($product->id))
-                                                <a href="#" wire:click.prevent="removeFromWishlist({{ $product->id }})">
+                                            @if ($witems->contains($product->id))
+                                                <a href="#"
+                                                    wire:click.prevent="removeFromWishlist({{ $product->id }})">
                                                     <i class="fa fa-heart fill-heart"></i>
                                                 </a>
                                             @else
-                                                <a href="#" wire:click.prevent="addToWishlist({{ $product->id }} , '{{ $product->name }}' ,{{ $product->regular_price }})">
+                                                <a href="#"
+                                                    wire:click.prevent="addToWishlist({{ $product->id }} , '{{ $product->name }}' ,{{ $product->regular_price }})">
                                                     <i class="fa fa-heart"></i>
                                                 </a>
                                             @endif
@@ -163,14 +167,17 @@
                     <div class="widget-content">
                         <ul class="list-category">
                             @foreach ($categories as $category)
-                                <li class="category-item {{count($category->subCategories) > 0 ? 'has-child-cate': '' }}">
-                                    <a href="{{ route('product.category', ['category_slug' => $category->slug]) }}" class="cate-link">{{ $category->name }}</a>
-                                    @if (count($category->subCategories)>0)
+                                <li
+                                    class="category-item {{ count($category->subCategories) > 0 ? 'has-child-cate' : '' }}">
+                                    <a href="{{ route('product.category', ['category_slug' => $category->slug]) }}"
+                                        class="cate-link">{{ $category->name }}</a>
+                                    @if (count($category->subCategories) > 0)
                                         <span class="toggle-control">+</span>
                                         <ul class="sub-cate">
                                             @foreach ($category->subCategories as $scategory)
                                                 <li class="category-item">
-                                                    <a href="{{ route('product.category', ['category_slug'=>$category->slug, 'scategory_slug'=>$scategory->slug]) }}" class="cate-link">
+                                                    <a href="{{ route('product.category', ['category_slug' => $category->slug, 'scategory_slug' => $scategory->slug]) }}"
+                                                        class="cate-link">
                                                         <i class="fa fa-caret-right"></i> {{ $scategory->name }}
                                                     </a>
                                                 </li>
@@ -195,18 +202,20 @@
                             <li class="list-item"><a class="filter-link " href="#">Sound & Speaker</a></li>
                             <li class="list-item"><a class="filter-link " href="#">Shop Smartphone &
                                     Tablets</a></li>
-                            <li class="list-item default-hiden"><a class="filter-link " href="#">Printer & Ink</a>
+                            <li class="list-item default-hiden"><a class="filter-link " href="#">Printer &
+                                    Ink</a>
                             </li>
                             <li class="list-item default-hiden"><a class="filter-link " href="#">CPUs &
                                     Prosecsors</a></li>
                             <li class="list-item default-hiden"><a class="filter-link " href="#">Sound &
                                     Speaker</a></li>
-                            <li class="list-item default-hiden"><a class="filter-link " href="#">Shop Smartphone &
+                            <li class="list-item default-hiden"><a class="filter-link " href="#">Shop
+                                    Smartphone &
                                     Tablets</a></li>
                             <li class="list-item"><a
                                     data-label='Show less<i class="fa fa-angle-up" aria-hidden="true"></i>'
-                                    class="btn-control control-show-more" href="#">Show more<i class="fa fa-angle-down"
-                                        aria-hidden="true"></i></a></li>
+                                    class="btn-control control-show-more" href="#">Show more<i
+                                        class="fa fa-angle-down" aria-hidden="true"></i></a></li>
                         </ul>
                     </div>
                 </div><!-- brand widget-->
@@ -218,6 +227,24 @@
                         <div id="slider" wire:ignore></div>
                     </div>
                 </div><!-- Price-->
+
+                {{-- @foreach ($products->attributeValues->unique('product_attribute_id') as $av)
+                    <div class="widget mercado-widget filter-widget">
+                        <h2 class="widget-title">{{ $av->productAttribute->name }}</h2>
+                        <div class="widget-content">
+                            <ul class="list-style vertical-list has-count-index">
+                                @foreach ($av->productAttribute->attributeValues->where('product_id', $product->id) as $pav)
+
+                                    <li class="list-item" wire:model="shop_page_attribute"><a class="filter-link " href="#">{{ $pav->value }} <span>(217)</span></a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div><!-- Color -->
+                @endforeach --}}
+
+
+
 
                 <div class="widget mercado-widget filter-widget">
                     <h2 class="widget-title">Color</h2>
@@ -238,26 +265,6 @@
                         </ul>
                     </div>
                 </div><!-- Color -->
-
-                {{-- <div class="widget mercado-widget filter-widget">
-                    <h2 class="widget-title">Color</h2>
-                    <div class="widget-content">
-                        <ul class="list-style vertical-list has-count-index">
-                            <li class="list-item"><a class="filter-link " href="#">Red <span>(217)</span></a>
-                            </li>
-                            <li class="list-item"><a class="filter-link " href="#">Yellow
-                                    <span>(179)</span></a></li>
-                            <li class="list-item"><a class="filter-link " href="#">Black
-                                    <span>(79)</span></a></li>
-                            <li class="list-item"><a class="filter-link " href="#">Blue
-                                    <span>(283)</span></a></li>
-                            <li class="list-item"><a class="filter-link " href="#">Grey
-                                    <span>(116)</span></a></li>
-                            <li class="list-item"><a class="filter-link " href="#">Pink <span>(29)</span></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div><!-- Color --> --}}
 
                 <div class="widget mercado-widget filter-widget">
                     <h2 class="widget-title">Size</h2>
